@@ -7,24 +7,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Date: typeof import('./src/components/NormalDate/date.vue')['default']
-    DatePicker: typeof import('./src/components/NormalDate/datePicker.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
-    ElTimeline: typeof import('element-plus/es')['ElTimeline']
-    ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
-    Form: typeof import('./src/components/NormalTable/coms/form.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    NormalImg: typeof import('./src/components/NormalTable/coms/NormalImg.vue')['default']
     NormalSelect: typeof import('./src/components/NormalSelect/index.vue')['default']
-    NormalTable: typeof import('./src/components/NormalTable/index.vue')['default']
-    Pages: typeof import('./src/components/NormalTable/coms/pages.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Tabs: typeof import('./src/components/NormalTable/coms/tabs.vue')['default']
+    Table: typeof import('./src/components/NormalTable/coms/table.vue')['default']
   }
 }

@@ -4,7 +4,9 @@
       <el-header class="Header">Header</el-header>
       <el-container>
         <el-aside width="200px" class="Aside">Aside</el-aside>
-        <el-main><router-view></router-view></el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -23,6 +25,7 @@
 }
 .Aside {
   width: 200px;
+  height: 1000px;
   background: #ccc;
 }
 </style>
