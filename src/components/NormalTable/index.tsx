@@ -1,23 +1,35 @@
-import { defineComponent, onMounted, ref, reactive } from 'vue'
-import Tables from './coms/table.vue'
-const buttonProps = {
+import { defineComponent, onMounted, ref, reactive, PropType } from 'vue'
+import Tables from './coms/table'
+import Filter from './coms/filter'
+
+const gatherProps = {
   data: {
-    colums: Object
+    type: Object,
+    filter: [Array, Function],
+    colums: Array,
+    onSearch: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
   }
 }
 export default defineComponent({
   name: 'Normaltable',
-  props: buttonProps,
+  props: gatherProps,
   setup(props) {
-    
+    const { filter, colums } = props?.data as any
     // 筛选项
-    const filterVNode = () => {
-
+    const filterVNode = (filter) => {
+      if (!filter) return ''
+      return <Filter filter={filter} />
     }
-    const { filter, colums, onSearch} = props.data
+    // table
+    const tableVNode = (colums) => {
+      if (!colums) return ''
+      return <Tables data={colums}></Tables>
+    }
     return () => <>
-      <Tables data={colums}></Tables>
-      {/* {filterVNode()} */}
+      {/* 筛选项 */}
+      {filterVNode(filter)}
+      {/* table */}
+      {tableVNode(colums)}
     </>
   }
 })

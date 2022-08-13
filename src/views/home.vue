@@ -1,18 +1,41 @@
 <template>
   <div>
     <NormalTable :data="tableData"></NormalTable>
+    <!-- <NormalTables /> -->
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import NormalTable from '@/components/NormalTable'
+
 const tableData = reactive({
   filter: [
     {
       tag: 'Select',  // 驼峰方式
       label: '状态',
       prop: 'status',
+      bind: {
+        options: [{label: '测试1', value: 1}]
+      }
+    },
+    {
+      tag: 'Input',
+      label: '状1态',
+      prop: 'statu1s',
+    },
+    {
+      tag: 'Select',  // 驼峰方式
+      label: '状态',
+      prop: 'status',
+      bind: {
+        options: [{label: '测试1', value: 1}]
+      }
+    },
+    {
+      tag: 'Input',
+      label: '状1态',
+      prop: 'statu1s',
     },
   ],
   colums: [
@@ -33,7 +56,10 @@ const tableData = reactive({
       page: 1,
       total: 1000,
       pageSize: 100,
-      list: []
+      list: [{
+        ddd: '测试',
+        img: '呵呵'
+      }]
     }
   }
 })
