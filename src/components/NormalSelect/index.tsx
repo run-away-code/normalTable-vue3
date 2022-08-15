@@ -1,17 +1,16 @@
 import { defineComponent, onMounted, ref, reactive } from 'vue'
 const selectProps = {
-  options: Array,
-  bind: Object
+  options: []
 }
 export default defineComponent({
   name: 'NormalSelect',
   props: selectProps,
   setup(props) {
-      console.log(props, 'props')
+    console.log(props, 'prop1111s')
     return () => <>
-      <el-select placeholder="">
+      <el-select {...props}>
         {
-          props.options.map(it => {
+          props?.options?.map(it => {
             return <el-option {...it} />
           })
         }

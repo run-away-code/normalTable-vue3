@@ -1,21 +1,18 @@
 import { defineComponent, onMounted, ref, reactive } from 'vue'
 const selectProps = {
-  options: Array,
+  type: String,
   bind: Object
 }
 export default defineComponent({
-  name: 'NormalSelect',
+  name: 'NormalDate',
   props: selectProps,
   setup(props) {
       console.log(props, 'props')
     return () => <>
-      <el-select placeholder="">
-        {
-          props.options.map(it => {
-            return <el-option {...it} />
-          })
-        }
-      </el-select>
+      <el-date-picker
+        type="datetime"
+        placeholder="Select date and time"
+      />
     </>
   }
 })

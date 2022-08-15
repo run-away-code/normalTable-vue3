@@ -13,6 +13,10 @@
 </template>
 
 <style scope>
+* {
+  margin: 0;
+  padding: 0;
+}
 #vite-app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

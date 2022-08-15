@@ -4,18 +4,18 @@ const selectProps = {
   bind: Object
 }
 export default defineComponent({
-  name: 'NormalSelect',
+  name: 'NormalPicker',
   props: selectProps,
   setup(props) {
       console.log(props, 'props')
     return () => <>
-      <el-select placeholder="">
-        {
-          props.options.map(it => {
-            return <el-option {...it} />
-          })
-        }
-      </el-select>
+      <el-date-picker
+        type="daterange"
+        range-separator="To"
+        start-placeholder="Start date"
+        end-placeholder="End date"
+        size="size"
+      />
     </>
   }
 })

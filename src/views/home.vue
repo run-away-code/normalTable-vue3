@@ -27,15 +27,15 @@ const tableData = reactive({
     {
       tag: 'Select',  // 驼峰方式
       label: '状态',
-      prop: 'status',
+      prop: 'stat1us',
       bind: {
         options: [{label: '测试1', value: 1}]
       }
     },
     {
       tag: 'Input',
-      label: '状1态',
-      prop: 'statu1s',
+      label: '姓名',
+      prop: 'name',
     },
   ],
   colums: [
