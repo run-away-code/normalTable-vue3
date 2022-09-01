@@ -1,34 +1,41 @@
 import { defineComponent, onMounted, ref, reactive } from 'vue'
-import { isFunction } from '@/utils'
-import { COMPONENTS_NAME } from '@/components/constants'
-const filterProps = {
+const TableProps = {
   filter: [Array, Function]
 }
 export default defineComponent({
   name: 'Normaltable',
-  props: filterProps,
+  // props: TableProps,
   setup(props) {
-    const filterVNode = filter => {
-      // 数组
-      if (Array.isArray(filter)) {
-        return filter.map(it => {
-          return <el-form-item label={it.label}>
-          </el-form-item>
-          // return <component is={COMPONENTS_NAME[it.tag]}></component>
-        })
+    const tableData = [
+      {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+      },
+      {
+        date: '2016-05-02',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+      },
+      {
+        date: '2016-05-04',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+      },
+      {
+        date: '2016-05-01',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
       }
-      // 函数
-      if (isFunction(filter)) {
-        const ArrayFilter = filter()
-        return ArrayFilter.map(it => {
-          return 'fff'
-        })
-      }
-    }
+    ]
+    
     return () => <>
-      <el-form label-width="120px">
-        {filterVNode(props.filter)}
-      </el-form> 
+      123
+      {/* <el-table data={tableData} style="width: 100%">
+        <el-table-column prop="date" label="Date" width="180" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="address" label="Address" />
+      </el-table> */}
     </>
   }
 })

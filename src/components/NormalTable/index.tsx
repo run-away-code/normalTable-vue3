@@ -2,7 +2,7 @@ import { defineComponent, onMounted, ref, reactive, PropType } from 'vue'
 import Tables from './coms/table'
 import Filter from './coms/filter'
 import Pagination from './coms/pagination'
-import type { FormInstance, FormRules } from 'element-plus'
+import type { FormInstance } from 'element-plus'
 
 
 const gatherProps = {
@@ -18,21 +18,19 @@ export default defineComponent({
   props: gatherProps,
   setup(props) {
     const { filter, colums } = props?.data as any
-    // 点击查询
-    const submitForm = async (formEl: FormInstance | undefined) => {
-      if (!formEl) return
-      await formEl.validate((valid, fields) => {
-        if (valid) {
-          console.log('submit!')
-        } else {
-          console.log('error submit!', fields)
-        }
-      })
+    // 查询
+    const onSearch = async () => {
+      const params = {}
+      try {
+        await props.data.onSearch(params)
+      } catch (error) {
+        console.error('onSearch出错')
+      }
     }
     // 筛选项
     const filterVNode = (filter) => {
       if (!filter) return ''
-      return <Filter filter={filter} />
+      return <Filter filter={filter} onSearch={onSearch} />
     }
     // table
     const tableVNode = (colums) => {

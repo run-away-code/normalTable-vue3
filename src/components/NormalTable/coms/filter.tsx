@@ -5,7 +5,8 @@ import NormalSelect from '@/components/NormalSelect/index'
 import type { FormInstance, FormRules } from 'element-plus'
 
 const filterProps = {
-  filter: [Array, Function]
+  filter: [Array, Function],
+  onSearch: Function
 }
 export default defineComponent({
   name: 'Normaltable',
@@ -13,12 +14,25 @@ export default defineComponent({
   props: filterProps,
   setup(props) {
     const ruleFormRef = ref<FormInstance>()
-    // 是否有render
+    const ruleForm = reactive({})
     const isRender = it => {
+      // 是否有render
       if (it.render && isFunction(it.render)) {
         return it.render()
       }
-      return h(resolveComponent(COMPONENTS_NAME[it.tag]), { ...it, ...it?.bind })
+      // 无render
+      const childernProps = {
+        ...it,
+        ...it?.bind,
+        modelValue: ruleForm[it.prop] = '',
+        clearable: true,
+        onInput: (value) => {
+          console.log(value, 'fff')
+          ruleForm[it.prop] = value
+          console.log(ruleForm, 'ruleForm[it.prop]')
+        }
+      }
+      return h(resolveComponent(COMPONENTS_NAME[it.tag]), childernProps)
     }
     const filterVNode = filter => {
       // filter为函数
@@ -35,22 +49,33 @@ export default defineComponent({
       }
       return '数据格式错误，应为数组or函数'
     }
-    // 查询&&充值按钮
+    // 查询&&重置
     const filterButtonVNode = () => {
       return <el-form-item>
-        <el-button type="primary">查询</el-button>
-        <el-button onClick={resetForm}>重置</el-button>
+        <el-button type="primary" onClick={submitForm(ruleFormRef.value)}>查询</el-button>
+        <el-button onClick={resetForm(ruleFormRef.value)}>重置</el-button>
       </el-form-item>
     }
-    const resetForm = (formEl: FormInstance | undefined) => {
+    // 点击查询
+    const submitForm = (formEl: FormInstance | undefined) => async() => {
+      if (!formEl) return
+      await formEl.validate((valid, fields) => {
+        if (valid) {
+          props.onSearch()
+        } else {
+          console.log('error submit!', fields)
+        }
+      })
+    }
+    const resetForm = (formEl: FormInstance | undefined) => () =>{
       if (!formEl) return
       formEl.resetFields()
     }
     return () => <>
-      <el-form ref={ruleFormRef} labelWidth="100px" inline={true}>
+      <el-form ref={'ruleFormRef'} model={ruleForm} labelWidth="100px" inline={true}>
         {filterVNode(props.filter)}
         {filterButtonVNode()}
-      </el-form> 
+      </el-form>
     </>
   }
 })
