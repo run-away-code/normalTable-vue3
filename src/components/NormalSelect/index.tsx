@@ -1,16 +1,31 @@
-import { defineComponent, onMounted, ref, effect } from 'vue'
+import { defineComponent, computed, ref, isRef } from 'vue'
 const selectProps = {
-  options: []
+  options: Array,
+  modelValue: String,
+  onChange: Function
 }
 export default defineComponent({
   name: 'NormalSelect',
   props: selectProps,
-  setup(props) {
-    const value = ref('')
+  emits: ['update:modelValue'],
+  setup(props, { emit }) {
+    // 判断是否ref对象，是则返回.value
+    const options = computed(() => {
+      return isRef(props.options) ? props.options.value : props.options
+    })
+    const internalValue = computed({
+      get() {
+        return props.modelValue
+      },
+      set(newVal) {
+        emit("update:modelValue", newVal);
+        props?.onChange?.(newVal)
+      }
+    })
     return () => <>
-      <el-select {...props} vModel={value}>
+      <el-select {...props} vModel={internalValue.value}>
         {
-          props?.options?.map(it => {
+          options.value?.map(it => {
             return <el-option {...it} />
           })
         }

@@ -1,8 +1,7 @@
-import { defineComponent, onMounted, ref, reactive, PropType } from 'vue'
+import { defineComponent, defineExpose, ref, reactive, PropType } from 'vue'
 import Tables from './coms/table'
 import Filter from './coms/filter'
 import Pagination from './coms/pagination'
-import type { FormInstance } from 'element-plus'
 
 
 const gatherProps = {
@@ -47,7 +46,7 @@ export default defineComponent({
       {/* table */}
       {tableVNode(colums)}
       {/* 分页 */}
-      {paginationVNode()}
+      {/* {paginationVNode()} */}
     </>
   }
 })

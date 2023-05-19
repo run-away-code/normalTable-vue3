@@ -1,3 +1,6 @@
+import NormalInput from './NormalInput/index'
+import NormalSelect from './NormalSelect/index'
+import NormalCascader from './NormalCascader/index'
 export const DATE_FORMAT = {
     year: 'yyyy',
     month: 'yyyy-MM',
@@ -12,12 +15,12 @@ export const TYPE_COMPONENTS_NAME = {
     Img: 'NormalImg'
 }
 export const COMPONENTS_NAME = {
-    'Input': 'el-input',
-    'Select': 'NormalSelect',
+    'Input': NormalInput,
+    'Select': NormalSelect,
     'DatePicker': 'NormalPicker',
     'Upload': 'NormalUpload',
     'Date': 'NormalDate',
-    'Cascader': 'el-cascader',
+    'Cascader': NormalCascader,
     'Radio': 'NormalRadio',
     'InputNumber':'el-input-number',
     'Switch': 'el-switch',

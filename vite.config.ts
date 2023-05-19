@@ -31,11 +31,12 @@ export default defineConfig({
   base: `${process.env.NODE_ENV === 'production' ? '' : ''}`,
   // input: './src/components/index.js',
   build: {
-    // lib: {
-    //   entry: path.resolve(__dirname, './src/components/index.js'), // 设置入口文件
-    //   name: 'normaltable', // 起个名字，安装、引入用
-    //   fileName: 'normaltable' // 打包后的文件名
-    // },
-    outDir: 'vite',
+    lib: {
+      entry: path.resolve(__dirname, './src/components/index.js'), // 设置入口文件
+      name: 'Normaltable-Vue3', // 起个名字，安装、引入用
+      fileName: 'Normaltable-Vue3' // 打包后的文件名
+    },
+    // sourcemap: true, // 输出.map文件
+    outDir: 'dist',
   },
 })

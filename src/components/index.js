@@ -1,8 +1,8 @@
-import NormalTable from './NormalTable/index.vue'
-import NormalForm from './NormalForm/index.vue'
+// import NormalTable from './NormalTable/index'
+import NormalForm from './NormalForm/index'
 
 const Components = {
-  NormalTable,
+  // NormalTable,
   NormalForm
 }
 // Vue.js 的插件应当有一个公开方法 install 。第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象

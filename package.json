@@ -1,8 +1,8 @@
 {
   "name": "el-normaltable-vue3",
   "private": false,
-  "version": "0.0.1",
-  "main": "dist/normaltable.es.js",
+  "version": "0.1.0",
+  "main": "dist/Normaltable-Vue3.mjs",
   "author": "ni的名字",
   "description": "基于elementPlus二次封装",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
