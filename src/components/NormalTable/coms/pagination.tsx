@@ -1,17 +1,25 @@
-const PAGES = () => {
-  return <>
-    {/* <el-pagination
-      page-sizes="[100, 200, 300, 400]"
-      small="small"
-      disabled="disabled"
-      background="background"
-      layout="total, sizes, prev, pager, next, jumper"
-      total="400"
-    /> */}
-    {/* v-model:currentPage="currentPage4"
-      v-model:page-size="pageSize4" */}
-      {/* // @size-change="handleSizeChange"
-      // @current-change="handleCurrentChange" */}
-  </>
-}
-export default PAGES
+import {
+  defineComponent,
+  onMounted,
+  ref,
+  reactive,
+  resolveComponent,
+  h,
+} from "vue";
+
+const filterProps = {
+  filter: [Array, Function],
+  onSearch: Function,
+};
+export default defineComponent({
+  name: "NormalPagination",
+  props: filterProps,
+  setup(props) {
+    return () => (
+      <div>
+        {/* <el-color-picker /> */}
+        <el-pagination total="5" layout="prev, pager, next" />
+      </div>
+    );
+  },
+});

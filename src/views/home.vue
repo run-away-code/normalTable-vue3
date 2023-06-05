@@ -1,14 +1,14 @@
 <template>
   <div>
-    <!-- <NormalTable :data="tableData"></NormalTable> -->
-    <NormalForm :items="FormData.list" :submit="FormData.submit" ref="formRef" />
     <ElButton @click="openForm">打开form</ElButton>
+    <NormalTable :colums="tableData.colums" :onSearch="tableData.onSearch"></NormalTable>
+    <NormalForm :items="FormData.list" :submit="FormData.submit" ref="formRef" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { shallowRef, ref, markRaw, onMounted } from "vue";
-// import NormalTable from "@/components/NormalTable";
+import NormalTable from "@/components/NormalTable";
 import NormalForm from "@/components/NormalForm";
 
 import { filters } from "./constant";
@@ -64,7 +64,7 @@ const FormData = shallowRef({
 });
 const tableData = shallowRef({
   ...filters,
-  onSearch: async ({ filterValue, pagination }) => {
+  onSearch: ({ filterValue, pagination }) => {
     return {
       ...pagination,
       page: 1,
@@ -74,6 +74,10 @@ const tableData = shallowRef({
         {
           ddd: "测试",
           img: "呵呵",
+        },
+        {
+          ddd: "12测试",
+          img: "呵12呵",
         },
       ],
     };

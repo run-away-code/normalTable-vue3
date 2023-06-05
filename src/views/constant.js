@@ -36,7 +36,7 @@ export const filters = {
     {
       prop: "img",
       label: "测12222试",
-      type: "Img",
+      // type: "Img",
     },
   ],
 }
