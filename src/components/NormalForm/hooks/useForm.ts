@@ -5,7 +5,7 @@ import {
 } from "vue";
 import type { FormInstance } from 'element-plus'
 export const fromData = reactive({})
-// form中dom
+// form下ref
 export const ruleFormRef = ref<FormInstance>()
 export const useForm = (props) => {
   const handleUpdateValue = it => val => {

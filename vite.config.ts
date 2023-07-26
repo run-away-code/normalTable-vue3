@@ -33,8 +33,10 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, './src/components/index.js'), // 设置入口文件
-      name: 'Normaltable-Vue3', // 起个名字，安装、引入用
-      fileName: 'Normaltable-Vue3' // 打包后的文件名
+      name: 'normaltable-vue3', // 起个名字，安装、引入用
+      // 打包后文件的名称
+      fileName: ((format) => `normaltable.${format}.ts`),
+      formats: ['es', 'umd']
     },
     // sourcemap: true, // 输出.map文件
     outDir: 'dist',

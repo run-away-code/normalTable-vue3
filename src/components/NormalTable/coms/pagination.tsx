@@ -17,7 +17,6 @@ export default defineComponent({
   setup(props) {
     return () => (
       <div>
-        {/* <el-color-picker /> */}
         <el-pagination total="5" layout="prev, pager, next" />
       </div>
     );

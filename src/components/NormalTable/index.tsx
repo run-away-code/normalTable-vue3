@@ -53,7 +53,6 @@ export default defineComponent({
     };
     // 分页
     const paginationVNode = () => {
-      console.log("paginationVNode");
       return <Pagination></Pagination>;
     };
     return () => {

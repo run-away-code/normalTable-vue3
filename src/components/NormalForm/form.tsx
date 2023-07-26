@@ -27,16 +27,16 @@ export default defineComponent({
       if (!it?.tag) return <>tag配置错误</>
       return (
         <>
-          {h(COMPONENTS_NAME[it?.tag], {...it.bind, modelValue: fromData[it.prop], 'onUpdate:modelValue': handleUpdateValue(it) })}
+          {h(COMPONENTS_NAME[it?.tag], {...it.bind, width: '100%', modelValue: fromData[it.prop], 'onUpdate:modelValue': handleUpdateValue(it) })}
         </>
       )
 
     }
     return () => (
       <>
-        <el-form ref={ruleFormRef} model={fromData} rules={useRules} label-width="100px">
+        <el-form ref={ruleFormRef} model={fromData} rules={useRules}>
           {props.list.map(it => {
-            return <el-form-item {...formItemAttrs.value(it)}>
+            return <el-form-item label-width="120px" {...formItemAttrs.value(it)}>
               {componentRender(it)}
           </el-form-item>
           })}

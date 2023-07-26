@@ -1,8 +1,8 @@
 {
   "name": "el-normaltable-vue3",
   "private": false,
-  "version": "0.1.0",
-  "main": "dist/Normaltable-Vue3.mjs",
+  "version": "0.2.0",
+  "main": "dist/normaltable.es.ts",
   "author": "ni的名字",
   "description": "基于elementPlus二次封装",
   "keywords": [
