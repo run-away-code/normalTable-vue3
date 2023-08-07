@@ -10,32 +10,37 @@ export const filters = {
     },
     {
       tag: "Input",
-      label: "状1态",
-      prop: "statu1s",
+      label: "性别",
+      prop: "name",
     },
     {
       tag: "Select", // 驼峰方式
-      label: "状态",
-      prop: "stat1us",
+      label: "身份证",
+      prop: "id",
       bind: {
         options: [{ label: "测试1", value: 1 }],
       },
     },
     {
       tag: "Input",
-      label: "姓名",
-      prop: "name",
+      label: "age",
+      prop: "age",
     },
   ],
-  colums: [
+  columns: [
     {
-      prop: "ddd",
-      label: "测12222试",
+      prop: "date",
+      label: "date",
       width: "140px",
     },
     {
-      prop: "img",
-      label: "测12222试",
+      prop: "name",
+      label: "name",
+      // type: "Img",
+    },
+    {
+      prop: "address",
+      label: "address",
       // type: "Img",
     },
   ],

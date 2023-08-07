@@ -19,7 +19,7 @@ export const useForm = (props) => {
   }))
   // 根据rule类型（boolean,string,Array)
   const useRules = computed(() => {
-    return props.list.reduce((obj, it) => {
+    return props.items.reduce((obj, it) => {
       // 过滤rule为空数据
       if (!it.rule) return obj
       const isArray = Array.isArray(it.rule)

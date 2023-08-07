@@ -13,7 +13,7 @@ import Pagination from "./coms/pagination";
 const gatherProps = {
   type: Object,
   filter: [Array, Function],
-  colums: Array,
+  columns: Array,
   onSearch: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
 };
 export default defineComponent({
@@ -47,23 +47,23 @@ export default defineComponent({
       return <Filter filter={filter} onSearch={handleSearch} />;
     };
     // table
-    const tableVNode = (colums) => {
-      if (!colums) return "";
-      return <Tables colums={colums} tableData={tableData.value}></Tables>;
+    const tableVNode = (columns) => {
+      if (!columns) return "";
+      return <Tables columns={columns} tableData={tableData.value}></Tables>;
     };
     // 分页
     const paginationVNode = () => {
       return <Pagination></Pagination>;
     };
     return () => {
-      const { filter, colums } = toRefs(props);
-      console.log(filter, "filter");
+      const { filter, columns } = toRefs(props);
+      console.log(columns, "columns");
       return (
         <>
           {/* 筛选项 */}
           {filterVNode(filter.value)}
           {/* table */}
-          {tableVNode(colums.value)}
+          {tableVNode(columns.value)}
           {/* 分页 */}
           {paginationVNode()}
         </>

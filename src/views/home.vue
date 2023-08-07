@@ -1,8 +1,17 @@
 <template>
   <div>
-    <ElButton @click="openForm">打开form</ElButton>
-    <NormalTable :colums="tableData.colums" :onSearch="tableData.onSearch"></NormalTable>
-    <NormalForm :items="FormData.list" :submit="FormData.submit" ref="formRef" />
+    <!-- <ElButton @click="openForm">打开form</ElButton> -->
+    <NormalTable
+      :filter="tableData.filter"
+      :columns="tableData.columns"
+      :onSearch="tableData.onSearch"
+    ></NormalTable>
+    <!-- <NormalForm
+      :items="FormData.list"
+      style="max-width: 260px"
+      :submit="FormData.submit"
+      ref="formRef"
+    /> -->
   </div>
 </template>
 
@@ -43,6 +52,7 @@ const FormData = shallowRef({
         prop: "content",
         rule: true,
         bind: {
+          width: "100px",
           // input: (val) => {
           //   console.log(val);
           // },
@@ -72,12 +82,14 @@ const tableData = shallowRef({
       pageSize: 100,
       list: [
         {
-          ddd: "测试",
-          img: "呵呵",
+          date: "2016-05-03",
+          name: "Tom",
+          address: "No. 189, Grove St, Los Angeles",
         },
         {
-          ddd: "12测试",
-          img: "呵12呵",
+          date: "2016-05-02",
+          name: "Tom",
+          address: "No. 189, Grove St, Los Angeles",
         },
       ],
     };

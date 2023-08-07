@@ -18,13 +18,13 @@ export default defineComponent({
   props: gatherProps(),
   setup(props, { slots }) {
     const { proxy } = getCurrentInstance();
-    const { useList, handleSubmit, dialogForm, useOpen, dialogBind } =
+    const { handleSubmit, dialogForm, useOpen, dialogBind, formBind } =
       useSubmit(props);
     proxy.open = useOpen;
     return () => (
       <>
         <el-dialog v-model={dialogForm.value} {...dialogBind}>
-          <Form list={useList}></Form>
+          <Form {...formBind}></Form>
           <el-button type="primary" onClick={handleSubmit}>
             确认
           </el-button>

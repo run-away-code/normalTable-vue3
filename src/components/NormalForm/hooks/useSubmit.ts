@@ -46,12 +46,19 @@ export const useSubmit = (props) => {
     dialogBind.title = title
     dialogForm.value = true;
   };
+  // 传入form中参数
+  const formBind = computed(() => {
+    // TODO：这里还缺深拷贝
+    const binds = { ...props, items: useList.value }
+    binds.submit = null
+    return binds
+  })
   return {
     dialogForm,
-    useList: useList.value,
     handleSubmit,
     useOpen,
     useClose,
-    dialogBind
+    dialogBind,
+    formBind: formBind.value
   }
 }
