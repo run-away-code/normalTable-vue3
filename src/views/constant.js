@@ -27,21 +27,4 @@ export const filters = {
       prop: "age",
     },
   ],
-  columns: [
-    {
-      prop: "date",
-      label: "date",
-      width: "140px",
-    },
-    {
-      prop: "name",
-      label: "name",
-      // type: "Img",
-    },
-    {
-      prop: "address",
-      label: "address",
-      // type: "Img",
-    },
-  ],
 }

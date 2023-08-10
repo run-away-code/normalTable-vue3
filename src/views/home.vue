@@ -1,26 +1,52 @@
 <template>
   <div>
     <!-- <ElButton @click="openForm">打开form</ElButton> -->
-    <NormalTable
+    <!-- <NormalTable
       :filter="tableData.filter"
       :columns="tableData.columns"
       :onSearch="tableData.onSearch"
-    ></NormalTable>
-    <!-- <NormalForm
-      :items="FormData.list"
-      style="max-width: 260px"
-      :submit="FormData.submit"
-      ref="formRef"
-    /> -->
+    ></NormalTable> -->
+    <el-table :data="data1">
+      <NormalColumns :columns="columns"></NormalColumns>
+      <el-table-column prop="address" label="Address" />
+    </el-table>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import { shallowRef, ref, markRaw, onMounted } from "vue";
-import NormalTable from "@/components/NormalTable";
+// import { NormalTable, NormalColumns } from "el-normaltable-vue3";
 import NormalForm from "@/components/NormalForm";
+import { NormalColumns } from "@/components/index";
 
 import { filters } from "./constant";
+const columns = [
+  {
+    prop: "date",
+    label: "date",
+    width: "140px",
+  },
+  {
+    prop: "name",
+    label: "name",
+    render: (it) => {
+      console.log(it, "ttt");
+      return <div>123123</div>;
+    },
+  },
+  {
+    prop: "address",
+    label: "address",
+    // type: "Img",
+  },
+];
+const data1 = [
+  {
+    date: "2016-05-03",
+    name: "100000",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+];
 const formRef = ref(null);
 const options = ref([]);
 onMounted(() => {
@@ -88,7 +114,7 @@ const tableData = shallowRef({
         },
         {
           date: "2016-05-02",
-          name: "Tom",
+          name: "To1m",
           address: "No. 189, Grove St, Los Angeles",
         },
       ],

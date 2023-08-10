@@ -38,6 +38,10 @@ export default defineConfig({
       fileName: ((format) => `normaltable.${format}.ts`),
       formats: ['es', 'umd']
     },
+    rollupOptions: {
+      // 确保外部化处理那些你不想打包进库的依赖
+      external: ['vue'],
+    },
     // sourcemap: true, // 输出.map文件
     outDir: 'dist',
   },

@@ -3,7 +3,6 @@ import {
   onMounted,
   ref,
   reactive,
-  resolveComponent,
   h,
 } from "vue";
 
