@@ -3,12 +3,12 @@
     <!-- <ElButton @click="openForm">打开form</ElButton> -->
     <!-- <NormalTable
       :filter="tableData.filter"
-      :columns="tableData.columns"
+      :columns="columns"
       :onSearch="tableData.onSearch"
     ></NormalTable> -->
     <el-table :data="data1">
-      <NormalColumns :columns="columns"></NormalColumns>
-      <el-table-column prop="address" label="Address" />
+      <NormalColumns :columns="columns">
+      </NormalColumns>
     </el-table>
   </div>
 </template>
@@ -22,22 +22,95 @@ import { NormalColumns } from "@/components/index";
 import { filters } from "./constant";
 const columns = [
   {
+    type: 'index',
+    label: '序号'
+  },
+  {
     prop: "date",
     label: "date",
     width: "140px",
+    children: [
+      {
+        prop: "num",
+        label: "数量",
+        children: [
+          {
+            prop: "num",
+            label: "数量",
+            type: "money",
+          },
+          {
+            prop: "num",
+            label: "数11量",
+            type: "money",
+          },
+        ],
+      },
+      {
+        prop: "price",
+        label: "金额",
+        type: "money",
+      },
+      {
+        prop: "hhh",
+        label: "金额1",
+        type: "money",
+      },
+    ],
   },
   {
     prop: "name",
     label: "name",
     render: (it) => {
-      console.log(it, "ttt");
-      return <div>123123</div>;
+      return <div class="red">456456456</div>;
     },
   },
   {
     prop: "address",
     label: "address",
-    // type: "Img",
+  },
+  {
+    label: "操作",
+    // width: '80px',
+    btns: (row) => {
+      // 可为数组可为函数
+      const isShowAdd = row.id !== 1;
+      return [
+        {
+          hasAuth: false,
+          label: "确认",
+          type: "text",
+          call: (row) => {}, // row参数为当前行数据
+        },
+        {
+          label: "添加",
+          type: "text",
+          confirm: "确定移除吗？", // 二次确认弹窗
+          call: (row) => {
+            console.log(123123);
+            // row = JSON.parse(JSON.stringify(row));
+          },
+        },
+        // {
+        //   label: "确认",
+        //   type: "text",
+        //   children: [
+        //     {
+        //       label: "测试123",
+        //       call: () => {
+        //         console.log("测试123");
+        //       },
+        //     },
+        //     {
+        //       label: "测试456",
+        //       call: () => {
+        //         console.log("测试456");
+        //       },
+        //     },
+        //   ],
+        // },
+      ];
+    },
   },
 ];
 const data1 = [
@@ -45,6 +118,9 @@ const data1 = [
     date: "2016-05-03",
     name: "100000",
     address: "No. 189, Grove St, Los Angeles",
+    price: -9991000,
+    num: 99999,
+    hhh: undefined,
   },
 ];
 const formRef = ref(null);
@@ -133,4 +209,8 @@ const openForm = () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.red {
+  color: red;
+}
+</style>

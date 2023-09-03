@@ -1,0 +1,1 @@
+export const columnDefaultTypes = ['selection', 'index', 'expand']
