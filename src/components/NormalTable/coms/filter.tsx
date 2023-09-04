@@ -1,10 +1,4 @@
-import {
-  defineComponent,
-  onMounted,
-  ref,
-  reactive,
-  h,
-} from "vue";
+import { defineComponent, onMounted, ref, reactive, h } from "vue";
 import { isFunction } from "@/utils";
 import { COMPONENTS_NAME } from "@/components/constants";
 import NormalSelect from "@/components/NormalSelect/index";
@@ -30,15 +24,15 @@ export default defineComponent({
       const childernProps = {
         ...it,
         ...it?.bind,
-        modelValue: (ruleForm[it.prop] = ""),
+        modelValue: ruleForm[it.prop],
         clearable: true,
-        onInput: (value) => {
-          console.log(value, "fff");
+        onChange: (value) => {
           ruleForm[it.prop] = value;
-          console.log(ruleForm, "ruleForm[it.prop]");
         },
       };
-      return h(COMPONENTS_NAME[it.tag], childernProps);
+      const Tag = COMPONENTS_NAME[it.tag];
+      return <Tag {...childernProps} />;
+      // return h(COMPONENTS_NAME[it.tag], childernProps);
     };
     const filterVNode = (filter) => {
       // filter为函数
@@ -51,6 +45,7 @@ export default defineComponent({
           return (
             <el-form-item label={it.label} prop={it.prop}>
               {isRender(it)}
+              {/* <el-col span="10"></el-col> */}
             </el-form-item>
           );
         });
@@ -71,7 +66,7 @@ export default defineComponent({
     // 点击查询
     const submitForm = (formEl: FormInstance | undefined) => async () => {
       if (!formEl) return;
-      await formEl.validate((valid, fields) => {
+      await formEl?.validate((valid, fields) => {
         if (valid) {
           props.onSearch();
         } else {
@@ -86,13 +81,15 @@ export default defineComponent({
     return () => (
       <>
         <el-form
-          ref={"ruleFormRef"}
+          ref={ruleFormRef}
           model={ruleForm}
           labelWidth="100px"
           inline={true}
         >
-          {filterVNode(props.filter)}
-          {filterButtonVNode()}
+          <div style="display: flex;  flex-wrap: wrap">
+            {filterVNode(props.filter)}
+          </div>
+          <div style="margin-left:auto;">{filterButtonVNode()}</div>
         </el-form>
       </>
     );

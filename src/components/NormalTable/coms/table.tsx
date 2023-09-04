@@ -9,7 +9,6 @@ export default defineComponent({
   props: TableProps,
   setup(props) {
     return () => {
-      console.log(props, "dddd");
       return (
         <>
           <el-table data={props.tableData} style="width: 100%">

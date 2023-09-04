@@ -26,5 +26,13 @@ export const filters = {
       label: "age",
       prop: "age",
     },
+    {
+      tag: "Select", // 驼峰方式
+      label: "身份证",
+      prop: "id11",
+      bind: {
+        options: [{ label: "测试1", value: 1 }],
+      },
+    },
   ],
 }

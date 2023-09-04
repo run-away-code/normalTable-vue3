@@ -1,7 +1,7 @@
 {
   "name": "el-normaltable-vue3",
   "private": false,
-  "version": "0.7.6",
+  "version": "0.7.7",
   "main": "dist/normaltable.es.ts",
   "author": "ni的名字",
   "description": "基于elementPlus二次封装",
@@ -21,6 +21,7 @@
     "@vitejs/plugin-vue-jsx": "^2.0.0",
     "element-plus": "^2.2.12",
     "vue": "^3.0.5",
+    "vue-ahooks": "^1.0.8",
     "vue-router": "^4.0.11"
   },
   "devDependencies": {

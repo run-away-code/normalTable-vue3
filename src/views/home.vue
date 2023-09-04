@@ -1,21 +1,21 @@
 <template>
   <div>
     <!-- <ElButton @click="openForm">打开form</ElButton> -->
-    <!-- <NormalTable
+    <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
-    ></NormalTable> -->
-    <el-table :data="data1">
+    ></NormalTable>
+    <!-- <el-table :data="data1">
       <NormalColumns :columns="columns">
       </NormalColumns>
-    </el-table>
+    </el-table> -->
   </div>
 </template>
 
 <script lang="tsx" setup>
 import { shallowRef, ref, markRaw, onMounted } from "vue";
-// import { NormalTable, NormalColumns } from "el-normaltable-vue3";
+import NormalTable from "@/components/NormalTable";
 import NormalForm from "@/components/NormalForm";
 import { NormalColumns } from "@/components/index";
 
@@ -71,20 +71,20 @@ const columns = [
   },
   {
     label: "操作",
-    // width: '80px',
+    width: '180px',
     btns: (row) => {
       // 可为数组可为函数
       const isShowAdd = row.id !== 1;
       return [
         {
-          hasAuth: false,
+          // hasAuth: false,
           label: "确认",
-          type: "text",
+          // type: "text",
           call: (row) => {}, // row参数为当前行数据
         },
         {
           label: "添加",
-          type: "text",
+          // type: "text",
           confirm: "确定移除吗？", // 二次确认弹窗
           call: (row) => {
             console.log(123123);
@@ -177,6 +177,7 @@ const FormData = shallowRef({
 const tableData = shallowRef({
   ...filters,
   onSearch: ({ filterValue, pagination }) => {
+    console.log(filterValue, 'filterValue')
     return {
       ...pagination,
       page: 1,

@@ -53,7 +53,7 @@ export default defineComponent({
     };
     // 分页
     const paginationVNode = () => {
-      return <Pagination></Pagination>;
+      return <Pagination />;
     };
     return () => {
       const { filter, columns } = toRefs(props);
