@@ -1,8 +1,23 @@
 ## 动态table
-
+## 配置
+| props | 类型 | Description |
+| --- | --- |
+| [filter] | function,Array | data配置项 |
+| [columns] | Array | data配置项 |
+| [onSearch] | Function | data配置项 |
+| [pagination] | Boolean，Object | Boolean显示隐藏，Object可配置对应参数传入 |
 - 动态table用法
 ```js
-<NormalTable ref="NormalTable" :tables="tables" />
+<NormalTable
+  :filter="tableData.filter"
+  :columns="columns"
+  :onSearch="tableData.onSearch"
+  :pagination="pagination"
+></NormalTable>
+<el-table :data="data1">
+  <NormalColumns :columns="columns">
+  </NormalColumns>
+</el-table>
 export default {
   name: 'App',
   data() {

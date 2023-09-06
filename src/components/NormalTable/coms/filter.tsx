@@ -88,8 +88,9 @@ export default defineComponent({
         >
           <div style="display: flex;  flex-wrap: wrap">
             {filterVNode(props.filter)}
+            <div style="margin-left:auto;">{filterButtonVNode()}</div>
           </div>
-          <div style="margin-left:auto;">{filterButtonVNode()}</div>
+          
         </el-form>
       </>
     );

@@ -5,6 +5,7 @@
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
+      :pagination="pagination"
     ></NormalTable>
     <!-- <el-table :data="data1">
       <NormalColumns :columns="columns">
