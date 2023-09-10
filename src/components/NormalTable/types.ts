@@ -7,3 +7,9 @@ export type TypeDefaultColumn = {
     type: types
     btns: []
 }
+export type pageProps = {
+    total: Number,
+    layout: 'prev, pager, next',
+    small?: false,
+    background?: false,
+}

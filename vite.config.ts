@@ -45,4 +45,13 @@ export default defineConfig({
     // sourcemap: true, // 输出.map文件
     outDir: 'dist',
   },
+  css: {
+    preprocessorOptions: {
+      // 全局样式引入
+      scss: {
+        // additionalData: '@import "./src/styles/variables.scss";',
+        javascriptEnabled: true
+      }
+    }
+  }
 })

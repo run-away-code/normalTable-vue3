@@ -1,0 +1,11 @@
+.flex {
+  display: flex;
+}
+.flexContent {
+  @extend .flex;
+  justify-content: center;
+}
+.flexCenter {
+  @extend .flexContent;
+  align-items: center;
+}

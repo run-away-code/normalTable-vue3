@@ -36,7 +36,6 @@ export default defineComponent({
         </>
       );
     };
-    console.log(props, "props————————");
     return () => (
       <>
         <el-form ref={ruleFormRef} model={fromData} rules={useRules} {...props}>

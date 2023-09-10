@@ -5,32 +5,40 @@ import {
   ref,
   toRefs,
   PropType,
+  isRef,
+  shallowRef,
 } from "vue";
 import Tables from "./coms/table";
 import Filter from "./coms/filter";
-import Pagination from "./coms/pagination";
-
+import Pagination from "./coms/pagination.vue";
 const gatherProps = {
   type: Object,
   filter: [Array, Function],
   columns: Array,
   onSearch: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
+  pagination: [Object, Boolean],
 };
 export default defineComponent({
   name: "NormalTable",
   props: gatherProps,
   setup(props) {
     const tableData = ref([]);
-
+    const pageData = shallowRef({
+      page: 1,
+      total: 0,
+    })
     // 查询
     const handleSearch = async () => {
       const params = {
         filterValue: {},
-        pagination: {},
+        pagination: {
+          page: 1
+        },
       };
       try {
-        const { list } = await props.onSearch(params);
+        const { list, ...pagination } = await props.onSearch(params);
         tableData.value = list;
+        pageData.value = pagination
       } catch (error) {
         console.error("onSearch出错");
       }
@@ -51,13 +59,15 @@ export default defineComponent({
       if (!columns) return "";
       return <Tables columns={columns} tableData={tableData.value}></Tables>;
     };
-    // 分页
     const paginationVNode = () => {
-      return <Pagination />;
+      // pagination为false
+      if ("pagination" in props && !props.pagination) {
+        return null;
+      }
+      return <Pagination {...props.pagination} {...pageData.value} />;
     };
     return () => {
       const { filter, columns } = toRefs(props);
-      console.log(columns, "columns");
       return (
         <>
           {/* 筛选项 */}

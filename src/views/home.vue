@@ -21,10 +21,17 @@ import NormalForm from "@/components/NormalForm";
 import { NormalColumns } from "@/components/index";
 
 import { filters } from "./constant";
+const pagination = {
+  pageSizes: [10, 20, 30, 40, 50, 100],
+  disabled: true,
+  // currentChange: () => {
+  //   console.log(123123)
+  // }
+};
 const columns = [
   {
-    type: 'index',
-    label: '序号'
+    type: "index",
+    label: "序号",
   },
   {
     prop: "date",
@@ -72,7 +79,7 @@ const columns = [
   },
   {
     label: "操作",
-    width: '180px',
+    width: "180px",
     btns: (row) => {
       // 可为数组可为函数
       const isShowAdd = row.id !== 1;
@@ -178,7 +185,7 @@ const FormData = shallowRef({
 const tableData = shallowRef({
   ...filters,
   onSearch: ({ filterValue, pagination }) => {
-    console.log(filterValue, 'filterValue')
+    console.log(filterValue, "filterValue");
     return {
       ...pagination,
       page: 1,
