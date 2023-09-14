@@ -3,7 +3,7 @@ import { isFunction } from "@/utils";
 import { COMPONENTS_NAME } from "@/components/constants";
 import NormalSelect from "@/components/NormalSelect/index";
 import type { FormInstance, FormRules } from "element-plus";
-
+import { useBCTResizable } from "../hooks/useResizable";
 const filterProps = {
   filter: [Array, Function],
   onSearch: Function,
@@ -13,6 +13,7 @@ export default defineComponent({
   components: { NormalSelect },
   props: filterProps,
   setup(props) {
+    const { layout } = useBCTResizable();
     const ruleFormRef = ref<FormInstance>();
     const ruleForm = reactive({});
     const isRender = (it) => {
@@ -43,10 +44,15 @@ export default defineComponent({
       if (Array.isArray(filter)) {
         return filter.map((it) => {
           return (
-            <el-form-item label={it.label} prop={it.prop}>
-              {isRender(it)}
-              {/* <el-col span="10"></el-col> */}
-            </el-form-item>
+            <el-col span={layout.span}>
+              <el-form-item
+                label={it.label}
+                prop={it.prop}
+                style="display: flex; align-items: center"
+              >
+                {isRender(it)}
+              </el-form-item>
+            </el-col>
           );
         });
       }
@@ -86,11 +92,10 @@ export default defineComponent({
           labelWidth="100px"
           inline={true}
         >
-          <div style="display: flex;  flex-wrap: wrap">
+          <el-row>
             {filterVNode(props.filter)}
             <div style="margin-left:auto;">{filterButtonVNode()}</div>
-          </div>
-          
+          </el-row>
         </el-form>
       </>
     );

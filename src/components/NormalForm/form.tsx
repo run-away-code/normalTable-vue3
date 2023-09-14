@@ -9,7 +9,7 @@ export const formItemProps = () => ({
 export default defineComponent({
   name: "Form",
   props: formItemProps(),
-  slots: [""],
+  // slots: [""],
   setup(props, { slots }) {
     const {
       fromData,
@@ -25,14 +25,20 @@ export default defineComponent({
       }
       // 无render&无tag则配置错误
       if (!it?.tag) return <>tag配置错误</>;
+      const Tag = COMPONENTS_NAME[it.tag]
+      const bind = {
+        ...it.bind,
+        modelValue: fromData[it.prop],
+      }
       return (
         <>
-          {h(COMPONENTS_NAME[it?.tag], {
+          <Tag {...bind}></Tag>
+          {/* {h(COMPONENTS_NAME[it?.tag], {
             ...it.bind,
             width: "100%",
             modelValue: fromData[it.prop],
             "onUpdate:modelValue": handleUpdateValue(it),
-          })}
+          })} */}
         </>
       );
     };

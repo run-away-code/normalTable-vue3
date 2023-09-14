@@ -23,7 +23,7 @@ export default defineComponent({
       }
     })
     return () => <>
-      <el-select {...props} vModel={internalValue.value}>
+      <el-select {...props} vModel={internalValue.value} style="width: 100%">
         {
           options.value?.map(it => {
             return <el-option {...it} />
