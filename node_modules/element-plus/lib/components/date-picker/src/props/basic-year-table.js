@@ -10,7 +10,8 @@ const { date, disabledDate, parsedValue } = shared.datePickerSharedProps;
 const basicYearTableProps = runtime.buildProps({
   date,
   disabledDate,
-  parsedValue
+  parsedValue,
+  selectionMode: shared.selectionModeWithDefault("year")
 });
 
 exports.basicYearTableProps = basicYearTableProps;

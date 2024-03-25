@@ -6,6 +6,7 @@ export declare const DEFAULT_FORMATS_DATEPICKER: {
     dates: string;
     week: string;
     year: string;
+    years: string;
     month: string;
     datetime: string;
     monthrange: string;

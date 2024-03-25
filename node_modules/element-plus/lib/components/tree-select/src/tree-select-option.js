@@ -12,7 +12,7 @@ const component = vue.defineComponent({
     delete result.selectOptionClick;
     const vm = vue.getCurrentInstance().proxy;
     vue.nextTick(() => {
-      if (!result.select.cachedOptions.get(vm.value)) {
+      if (!result.select.states.cachedOptions.get(vm.value)) {
         result.select.onOptionCreate(vm);
       }
     });

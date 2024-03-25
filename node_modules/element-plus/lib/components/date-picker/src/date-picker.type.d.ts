@@ -1,5 +1,5 @@
 import type { Dayjs } from 'dayjs';
-export declare type IDatePickerType = 'year' | 'month' | 'date' | 'dates' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange';
+export declare type IDatePickerType = 'year' | 'years' | 'month' | 'date' | 'dates' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange';
 declare type DateCellType = 'normal' | 'today' | 'week' | 'next-month' | 'prev-month';
 export interface DateCell {
     column?: number;

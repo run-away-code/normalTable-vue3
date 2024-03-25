@@ -7,11 +7,7 @@ var radio = require('./radio.js');
 var runtime = require('../../../utils/vue/props/runtime.js');
 
 const radioButtonProps = runtime.buildProps({
-  ...radio.radioPropsBase,
-  name: {
-    type: String,
-    default: ""
-  }
+  ...radio.radioPropsBase
 });
 
 exports.radioButtonProps = radioButtonProps;

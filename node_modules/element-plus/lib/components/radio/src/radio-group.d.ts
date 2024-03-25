@@ -9,7 +9,7 @@ export declare const radioGroupProps: {
         __epPropKey: true;
     };
     readonly disabled: BooleanConstructor;
-    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown, "", boolean>;
+    readonly modelValue: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor], unknown, unknown, undefined, boolean>;
     readonly fill: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly textColor: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -18,8 +18,8 @@ export declare const radioGroupProps: {
 };
 export declare type RadioGroupProps = ExtractPropTypes<typeof radioGroupProps>;
 export declare const radioGroupEmits: {
-    "update:modelValue": (val: string | number | boolean) => boolean;
-    change: (val: string | number | boolean) => boolean;
+    "update:modelValue": (val: string | number | boolean | undefined) => boolean;
+    change: (val: string | number | boolean | undefined) => boolean;
 };
 export declare type RadioGroupEmits = typeof radioGroupEmits;
 export declare type RadioGroupInstance = InstanceType<typeof RadioGroup>;

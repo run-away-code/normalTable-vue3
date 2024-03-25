@@ -2,10 +2,15 @@
   display: flex;
 }
 .flexContent {
-  @extend .flex;
+  @extend.flex;
   justify-content: center;
 }
 .flexCenter {
-  @extend .flexContent;
+  @extend.flexContent;
+  align-items: center;
+}
+.center{
+  @extend.flex;
+  justify-content: center;
   align-items: center;
 }

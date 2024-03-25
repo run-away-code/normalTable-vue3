@@ -44,7 +44,7 @@ declare const ElCollection: {
     call: (<T, A extends any[]>(this: new (...args: A) => T, thisArg: T, ...args: A) => void) & ((this: unknown, ...args: unknown[]) => never);
     __defaults?: {} | undefined;
     compatConfig?: (Partial<Record<import("vue").DeprecationTypes, boolean | "suppress-warning">> & {
-        MODE?: 3 | 2 | ((comp: import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions> | null) => 3 | 2) | undefined;
+        MODE?: 2 | 3 | ((comp: import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions> | null) => 2 | 3) | undefined;
     }) | undefined;
     data?: ((this: import("vue").CreateComponentPublicInstance<Readonly<ExtractPropTypes<{}>>, {}, {}, {}, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, Readonly<ExtractPropTypes<{}>>, {}, false, {
         P: {};
@@ -169,7 +169,7 @@ declare const ElCollection: {
     call: (<T, A extends any[]>(this: new (...args: A) => T, thisArg: T, ...args: A) => void) & ((this: unknown, ...args: unknown[]) => never);
     __defaults?: {} | undefined;
     compatConfig?: (Partial<Record<import("vue").DeprecationTypes, boolean | "suppress-warning">> & {
-        MODE?: 3 | 2 | ((comp: import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions> | null) => 3 | 2) | undefined;
+        MODE?: 2 | 3 | ((comp: import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions> | null) => 2 | 3) | undefined;
     }) | undefined;
     data?: ((this: import("vue").CreateComponentPublicInstance<Readonly<ExtractPropTypes<{}>>, {}, {}, {}, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, Readonly<ExtractPropTypes<{}>>, {}, false, {
         P: {};

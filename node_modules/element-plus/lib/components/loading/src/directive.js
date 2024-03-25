@@ -65,6 +65,7 @@ const vLoading = {
   unmounted(el) {
     var _a;
     (_a = el[INSTANCE_KEY]) == null ? void 0 : _a.instance.close();
+    el[INSTANCE_KEY] = null;
   }
 };
 

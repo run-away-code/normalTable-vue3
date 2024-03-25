@@ -16,8 +16,8 @@ declare const _default: import("vue").DefineComponent<{
     textContent: import("vue").ComputedRef<string>;
     propsAndAttrs: import("vue").ComputedRef<{
         icon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined;
-        disabled: boolean;
         onClick: ((...args: any[]) => any) | undefined;
+        disabled: boolean;
         onPointermove: ((...args: any[]) => any) | undefined;
         onPointerleave: ((...args: any[]) => any) | undefined;
         command: import("element-plus/es/utils").EpPropMergeType<readonly [ObjectConstructor, StringConstructor, NumberConstructor], unknown, unknown>;

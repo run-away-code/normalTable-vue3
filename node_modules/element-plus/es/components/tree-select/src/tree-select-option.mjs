@@ -8,7 +8,7 @@ const component = defineComponent({
     delete result.selectOptionClick;
     const vm = getCurrentInstance().proxy;
     nextTick(() => {
-      if (!result.select.cachedOptions.get(vm.value)) {
+      if (!result.select.states.cachedOptions.get(vm.value)) {
         result.select.onOptionCreate(vm);
       }
     });

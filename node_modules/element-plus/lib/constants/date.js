@@ -4,6 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const datePickTypes = [
   "year",
+  "years",
   "month",
   "date",
   "dates",

@@ -7,7 +7,7 @@ require('../../../utils/index.js');
 require('../../../constants/index.js');
 require('../../../hooks/index.js');
 var index = require('../../../hooks/use-namespace/index.js');
-var rand = require('../../../utils/rand.js');
+var index$1 = require('../../../hooks/use-id/index.js');
 var aria = require('../../../constants/aria.js');
 var style = require('../../../utils/dom/style.js');
 
@@ -24,7 +24,7 @@ const initDropdownDomEvent = (dropdownChildren, triggerElm, _instance) => {
   const menuItems = vue.ref(null);
   const menuItemsArray = vue.ref(null);
   const dropdownElm = vue.ref(null);
-  const listId = vue.ref(`dropdown-menu-${rand.generateId()}`);
+  const listId = index$1.useId();
   dropdownElm.value = dropdownChildren == null ? void 0 : dropdownChildren.subTree.el;
   function removeTabindex() {
     var _a;

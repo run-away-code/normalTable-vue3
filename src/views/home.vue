@@ -1,16 +1,15 @@
 <template>
   <div>
     <!-- <ElButton @click="openForm">打开form</ElButton> -->
-    <NormalTable
+    <!-- <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
       :pagination="pagination"
-    ></NormalTable>
-    <!-- <el-table :data="data1">
-      <NormalColumns :columns="columns">
-      </NormalColumns>
-    </el-table> -->
+    ></NormalTable> -->
+    <el-table :data="data1">
+      <NormalColumns :columns="columns"> </NormalColumns>
+    </el-table>
   </div>
 </template>
 
@@ -37,6 +36,7 @@ const columns = [
     prop: "date",
     label: "date",
     width: "140px",
+    fixed: "right",
     children: [
       {
         prop: "num",
@@ -87,36 +87,38 @@ const columns = [
         {
           // hasAuth: false,
           label: "确认",
-          // type: "text",
+          text: true,
+          type: "primary",
           call: (row) => {}, // row参数为当前行数据
         },
         {
           label: "添加",
-          // type: "text",
+          text: true,
+          type: "primary",
           confirm: "确定移除吗？", // 二次确认弹窗
           call: (row) => {
             console.log(123123);
             // row = JSON.parse(JSON.stringify(row));
           },
         },
-        // {
-        //   label: "确认",
-        //   type: "text",
-        //   children: [
-        //     {
-        //       label: "测试123",
-        //       call: () => {
-        //         console.log("测试123");
-        //       },
-        //     },
-        //     {
-        //       label: "测试456",
-        //       call: () => {
-        //         console.log("测试456");
-        //       },
-        //     },
-        //   ],
-        // },
+        {
+          label: "确认",
+          type: "text",
+          children: [
+            {
+              label: "测试123",
+              call: () => {
+                console.log("测试123");
+              },
+            },
+            {
+              label: "测试456",
+              call: () => {
+                console.log("测试456");
+              },
+            },
+          ],
+        },
       ];
     },
   },

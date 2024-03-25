@@ -1,44 +1,46 @@
 import dayjs from 'dayjs';
 declare const _default: import("vue").DefineComponent<{
-    date: {
+    readonly date: {
         readonly type: import("vue").PropType<dayjs.Dayjs>;
         readonly required: true;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    disabledDate: {
+    readonly disabledDate: {
         readonly type: import("vue").PropType<(date: Date) => boolean>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    parsedValue: {
+    readonly parsedValue: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]) | ((new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
 }, {
     datesInYear: (year: number, lang: string) => Date[];
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-        date: {
+        readonly date: {
             readonly type: import("vue").PropType<dayjs.Dayjs>;
             readonly required: true;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        disabledDate: {
+        readonly disabledDate: {
             readonly type: import("vue").PropType<(date: Date) => boolean>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        parsedValue: {
+        readonly parsedValue: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]) | ((new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]))[], unknown, unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
+        readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
     }>> & {
         onPick?: ((...args: any[]) => any) | undefined;
     }>>;
@@ -71,25 +73,28 @@ declare const _default: import("vue").DefineComponent<{
     isSelectedCell: (year: number) => boolean;
     handleYearTableClick: (event: MouseEvent | KeyboardEvent) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "pick"[], "pick", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    date: {
+    readonly date: {
         readonly type: import("vue").PropType<dayjs.Dayjs>;
         readonly required: true;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    disabledDate: {
+    readonly disabledDate: {
         readonly type: import("vue").PropType<(date: Date) => boolean>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    parsedValue: {
+    readonly parsedValue: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]) | ((new (...args: any[]) => dayjs.Dayjs | dayjs.Dayjs[]) | (() => dayjs.Dayjs | dayjs.Dayjs[]))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    readonly selectionMode: import("element-plus/es/utils").EpPropFinalized<StringConstructor, string, unknown, string, boolean>;
 }>> & {
     onPick?: ((...args: any[]) => any) | undefined;
-}, {}>;
+}, {
+    readonly selectionMode: string;
+}>;
 export default _default;

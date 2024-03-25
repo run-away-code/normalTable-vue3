@@ -3,7 +3,7 @@ import '../../../utils/index.mjs';
 import '../../../constants/index.mjs';
 import '../../../hooks/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
-import { generateId } from '../../../utils/rand.mjs';
+import { useId } from '../../../hooks/use-id/index.mjs';
 import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { addClass } from '../../../utils/dom/style.mjs';
 
@@ -20,7 +20,7 @@ const initDropdownDomEvent = (dropdownChildren, triggerElm, _instance) => {
   const menuItems = ref(null);
   const menuItemsArray = ref(null);
   const dropdownElm = ref(null);
-  const listId = ref(`dropdown-menu-${generateId()}`);
+  const listId = useId();
   dropdownElm.value = dropdownChildren == null ? void 0 : dropdownChildren.subTree.el;
   function removeTabindex() {
     var _a;

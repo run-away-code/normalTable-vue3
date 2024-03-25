@@ -6,3 +6,6 @@ export declare const getScrollBarWidth: (namespace: string) => number;
  * of the container
  */
 export declare function scrollIntoView(container: HTMLElement, selected: HTMLElement): void;
+export declare function animateScrollTo(container: HTMLElement | Window, from: number, to: number, duration: number, callback?: unknown): () => void;
+export declare const getScrollElement: (target: HTMLElement, container: HTMLElement | Window) => HTMLElement;
+export declare const getScrollTop: (container: HTMLElement | Window) => number;

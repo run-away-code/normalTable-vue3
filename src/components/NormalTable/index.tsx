@@ -11,10 +11,19 @@ import {
 import Tables from "./coms/table";
 import Filter from "./coms/filter";
 import Pagination from "./coms/pagination.vue";
+import "./common.scss";
+interface ColumnProps {
+  type: string;
+  label: string;
+  [key: string]: any;
+}
 const gatherProps = {
   type: Object,
   filter: [Array, Function],
-  columns: Array,
+  columns: {
+    type: Array as PropType<ColumnProps[]>,
+    required: true,
+  },
   onSearch: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
   pagination: [Object, Boolean],
 };
@@ -26,19 +35,19 @@ export default defineComponent({
     const pageData = shallowRef({
       page: 1,
       total: 0,
-    })
+    });
     // 查询
     const handleSearch = async () => {
       const params = {
         filterValue: {},
         pagination: {
-          page: 1
+          page: 1,
         },
       };
       try {
         const { list, ...pagination } = await props.onSearch(params);
         tableData.value = list;
-        pageData.value = pagination
+        pageData.value = pagination;
       } catch (error) {
         console.error("onSearch出错");
       }

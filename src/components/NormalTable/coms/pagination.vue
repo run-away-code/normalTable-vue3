@@ -11,7 +11,7 @@ console.log(props, "props");
 // const slots = useS;
 const Render = () => {
   return (
-    <div class={style.flexContent}>
+    <div className={style.flexContent}>
       <el-pagination {...props} layout="prev, pager, next" />
     </div>
   );

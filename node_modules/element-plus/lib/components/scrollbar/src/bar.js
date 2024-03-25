@@ -10,15 +10,9 @@ const barProps = runtime.buildProps({
     type: Boolean,
     default: true
   },
-  width: String,
-  height: String,
-  ratioX: {
+  minSize: {
     type: Number,
-    default: 1
-  },
-  ratioY: {
-    type: Number,
-    default: 1
+    required: true
   }
 });
 
