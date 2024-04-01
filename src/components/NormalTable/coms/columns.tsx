@@ -1,8 +1,11 @@
-import { defineComponent } from "vue";
-import { defaultColumn } from '../hooks/useColumns'
+import { defineComponent, PropType } from "vue";
+import { defaultColumn } from "../hooks/useColumns";
 
 const columnsProps = {
-  columns: [],
+  columns: {
+    type: Array as PropType<ColumnProps[]>,
+    required: true,
+  },
 };
 
 export default defineComponent({

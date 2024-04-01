@@ -1,7 +1,10 @@
-import { defineComponent, onMounted, toRefs, reactive } from "vue";
+import { defineComponent, PropType, toRefs, reactive } from "vue";
 import Columns from "./columns";
 const TableProps = {
-  columns: [],
+  columns: {
+    type: Array as PropType<ColumnProps[]>,
+    required: true,
+  },
   tableData: Array,
 };
 export default defineComponent({

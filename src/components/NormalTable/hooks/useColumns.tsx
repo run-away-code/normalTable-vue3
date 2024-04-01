@@ -1,7 +1,7 @@
 import { formatMoney } from "@/utils/format";
 import type { TypeDefaultColumn } from "../types";
 import NormalBtns from "../coms/btns";
-import { columnDefaultTypes } from '../constants'
+import { columnDefaultTypes } from "../constants";
 const defaultParam = {
   align: "center",
 };
@@ -59,9 +59,10 @@ export const defaultColumn = (it: TypeDefaultColumn) => {
   const templateKeys = columnsActions.keys();
   const key = [...templateKeys].find((k) => it[k]);
   if (columnDefaultTypes.includes(it.type)) {
-    const columnTemplate = columnsActions.get('template')
+    const columnTemplate = columnsActions.get("template");
     return columnTemplate(it, {});
   }
+  console.log(it, "defaultParam");
   return (
     <el-table-column {...defaultParam} {...it} prop={it.prop} label={it.label}>
       {(scope) => {

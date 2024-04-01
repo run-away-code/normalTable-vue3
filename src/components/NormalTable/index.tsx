@@ -12,11 +12,7 @@ import Tables from "./coms/table";
 import Filter from "./coms/filter";
 import Pagination from "./coms/pagination.vue";
 import "./common.scss";
-interface ColumnProps {
-  type: string;
-  label: string;
-  [key: string]: any;
-}
+
 const gatherProps = {
   type: Object,
   filter: [Array, Function],
