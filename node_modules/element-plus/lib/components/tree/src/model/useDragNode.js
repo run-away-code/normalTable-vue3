@@ -128,6 +128,12 @@ function useDragNodeHandler({ props, ctx, el$, dropIndicator$, store }) {
       }
       if (dropType !== "none") {
         store.value.registerNode(draggingNodeCopy);
+        if (store.value.key) {
+          draggingNode.node.eachNode((node) => {
+            var _a;
+            (_a = store.value.nodesMap[node.data[store.value.key]]) == null ? void 0 : _a.setChecked(node.checked, !store.value.checkStrictly);
+          });
+        }
       }
       style.removeClass(dropNode.$el, ns.is("drop-inner"));
       ctx.emit("node-drag-end", draggingNode.node, dropNode.node, dropType, event);

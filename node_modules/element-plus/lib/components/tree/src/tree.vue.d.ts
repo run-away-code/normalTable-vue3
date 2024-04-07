@@ -128,6 +128,8 @@ declare const _default: import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => TreeNodeData | TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: Node) => void, defaultProps?: import("./tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: Node) => void) => void;
+            reInitChecked: () => void;
         };
         currentNodeKey: TreeKey;
         nodesMap: import("./tree.type").TreeStoreNodesMap;
@@ -172,6 +174,8 @@ declare const _default: import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => TreeNodeData | TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: Node) => void, defaultProps?: import("./tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: Node) => void) => void;
+            reInitChecked: () => void;
         };
         data: TreeNodeData[];
         lazy: boolean;
@@ -265,6 +269,8 @@ declare const _default: import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => TreeNodeData | TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: Node) => void, defaultProps?: import("./tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: Node) => void) => void;
+        reInitChecked: () => void;
     }>;
     currentNode: import("vue").Ref<{
         id: number;
@@ -307,6 +313,8 @@ declare const _default: import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => TreeNodeData | TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: Node) => void, defaultProps?: import("./tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: Node) => void) => void;
+        reInitChecked: () => void;
     }>;
     dragState: import("vue").Ref<{
         showDropIndicator: boolean;

@@ -100,6 +100,7 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
               { [vue.unref(ns).m(_ctx.type)]: _ctx.type },
               vue.unref(ns).is("center", _ctx.center),
               vue.unref(ns).is("closable", _ctx.showClose),
+              vue.unref(ns).is("plain", _ctx.plain),
               _ctx.customClass
             ]),
             style: vue.normalizeStyle(vue.unref(customStyle)),

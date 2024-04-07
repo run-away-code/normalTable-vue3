@@ -96,6 +96,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               { [unref(ns).m(_ctx.type)]: _ctx.type },
               unref(ns).is("center", _ctx.center),
               unref(ns).is("closable", _ctx.showClose),
+              unref(ns).is("plain", _ctx.plain),
               _ctx.customClass
             ]),
             style: normalizeStyle(unref(customStyle)),

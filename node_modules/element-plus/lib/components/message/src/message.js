@@ -20,6 +20,7 @@ const messageDefaults = typescript.mutable({
   onClose: void 0,
   showClose: false,
   type: "info",
+  plain: false,
   offset: 16,
   zIndex: 0,
   grouping: false,
@@ -61,7 +62,7 @@ const messageProps = runtime.buildProps({
   },
   onClose: {
     type: runtime.definePropType(Function),
-    required: false
+    default: messageDefaults.onClose
   },
   showClose: {
     type: Boolean,
@@ -71,6 +72,10 @@ const messageProps = runtime.buildProps({
     type: String,
     values: messageTypes,
     default: messageDefaults.type
+  },
+  plain: {
+    type: Boolean,
+    default: messageDefaults.plain
   },
   offset: {
     type: Number,

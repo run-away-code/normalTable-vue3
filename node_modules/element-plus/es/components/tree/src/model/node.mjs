@@ -415,12 +415,28 @@ class Node {
           callback.call(this, children);
         }
       };
-      this.store.load(this, resolve);
+      const reject = () => {
+        this.loading = false;
+      };
+      this.store.load(this, resolve, reject);
     } else {
       if (callback) {
         callback.call(this);
       }
     }
+  }
+  eachNode(callback) {
+    const arr = [this];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.unshift(...node.childNodes);
+      callback(node);
+    }
+  }
+  reInitChecked() {
+    if (this.store.checkStrictly)
+      return;
+    reInitChecked(this);
   }
 }
 

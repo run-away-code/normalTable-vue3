@@ -74,6 +74,7 @@ const _sfc_main = defineComponent({
     watch(() => props.node.checked, (val) => {
       handleSelectChange(val, props.node.indeterminate);
     });
+    watch(() => props.node.childNodes.length, () => props.node.reInitChecked());
     watch(() => props.node.expanded, (val) => {
       nextTick(() => expanded.value = val);
       if (val) {

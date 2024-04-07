@@ -62,7 +62,6 @@ export const defaultColumn = (it: TypeDefaultColumn) => {
     const columnTemplate = columnsActions.get("template");
     return columnTemplate(it, {});
   }
-  console.log(it, "defaultParam");
   return (
     <el-table-column {...defaultParam} {...it} prop={it.prop} label={it.label}>
       {(scope) => {

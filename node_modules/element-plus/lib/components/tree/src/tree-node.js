@@ -78,6 +78,7 @@ const _sfc_main = vue.defineComponent({
     vue.watch(() => props.node.checked, (val) => {
       handleSelectChange(val, props.node.indeterminate);
     });
+    vue.watch(() => props.node.childNodes.length, () => props.node.reInitChecked());
     vue.watch(() => props.node.expanded, (val) => {
       vue.nextTick(() => expanded.value = val);
       if (val) {

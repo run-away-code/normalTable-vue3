@@ -17,6 +17,7 @@ export declare const messageDefaults: Mutable<{
     readonly onClose: undefined;
     readonly showClose: false;
     readonly type: "info";
+    readonly plain: false;
     readonly offset: 16;
     readonly zIndex: 0;
     readonly grouping: false;
@@ -39,14 +40,18 @@ export declare const messageProps: {
     }> | (() => VNode)) & {}) | (() => string | VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }> | (() => VNode)))[], unknown, unknown, "", boolean>;
-    readonly onClose: {
-        readonly type: import("vue").PropType<() => void>;
-        readonly required: false;
-        readonly validator: ((val: unknown) => boolean) | undefined;
-        __epPropKey: true;
-    };
+    readonly onClose: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => () => void) | (() => () => void) | {
+        (): () => void;
+        new (): any;
+        readonly prototype: any;
+    } | ((new (...args: any[]) => () => void) | (() => () => void) | {
+        (): () => void;
+        new (): any;
+        readonly prototype: any;
+    })[], unknown, unknown, undefined, boolean>;
     readonly showClose: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "error" | "info", unknown, "info", boolean>;
+    readonly plain: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
     readonly offset: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 16, boolean>;
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly grouping: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;

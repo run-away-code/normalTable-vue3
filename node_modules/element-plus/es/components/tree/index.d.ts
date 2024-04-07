@@ -125,6 +125,8 @@ declare const _Tree: SFCWithInstall<import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+            reInitChecked: () => void;
         };
         currentNodeKey: import("./src/tree.type").TreeKey;
         nodesMap: import("./src/tree.type").TreeStoreNodesMap;
@@ -169,6 +171,8 @@ declare const _Tree: SFCWithInstall<import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+            reInitChecked: () => void;
         };
         data: import("./src/tree.type").TreeNodeData[];
         lazy: boolean;
@@ -262,6 +266,8 @@ declare const _Tree: SFCWithInstall<import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+        reInitChecked: () => void;
     }>;
     currentNode: import("vue").Ref<{
         id: number;
@@ -304,6 +310,8 @@ declare const _Tree: SFCWithInstall<import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+        reInitChecked: () => void;
     }>;
     dragState: import("vue").Ref<{
         showDropIndicator: boolean;
@@ -560,6 +568,8 @@ export declare const ElTree: SFCWithInstall<import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+            reInitChecked: () => void;
         };
         currentNodeKey: import("./src/tree.type").TreeKey;
         nodesMap: import("./src/tree.type").TreeStoreNodesMap;
@@ -604,6 +614,8 @@ export declare const ElTree: SFCWithInstall<import("vue").DefineComponent<{
             getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
             updateChildren: () => void;
             loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+            eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+            reInitChecked: () => void;
         };
         data: import("./src/tree.type").TreeNodeData[];
         lazy: boolean;
@@ -697,6 +709,8 @@ export declare const ElTree: SFCWithInstall<import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+        reInitChecked: () => void;
     }>;
     currentNode: import("vue").Ref<{
         id: number;
@@ -739,6 +753,8 @@ export declare const ElTree: SFCWithInstall<import("vue").DefineComponent<{
         getChildren: (forceInit?: boolean) => import("./src/tree.type").TreeNodeData | import("./src/tree.type").TreeNodeData[];
         updateChildren: () => void;
         loadData: (callback: (node: import("./src/model/node").default) => void, defaultProps?: import("./src/tree.type").TreeNodeLoadedDefaultProps) => void;
+        eachNode: (callback: (node: import("./src/model/node").default) => void) => void;
+        reInitChecked: () => void;
     }>;
     dragState: import("vue").Ref<{
         showDropIndicator: boolean;
