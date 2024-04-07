@@ -2,6 +2,7 @@ import { formatMoney } from "@/utils/format";
 import type { TypeDefaultColumn } from "../types";
 import NormalBtns from "../coms/btns";
 import { columnDefaultTypes } from "../constants";
+import { deepClone } from "@/utils/index";
 const defaultParam = {
   align: "center",
 };
@@ -44,7 +45,7 @@ export const columnsActions = new Map([
     "img",
     (it, scope) => {
       const value = scope.row[it.prop];
-      return <img src={value}></img>;
+      return <img src={value} />;
     },
   ],
   [
@@ -62,8 +63,17 @@ export const defaultColumn = (it: TypeDefaultColumn) => {
     const columnTemplate = columnsActions.get("template");
     return columnTemplate(it, {});
   }
+  // children与render不应存在属性
+  const cloneIt = deepClone(it);
+  Reflect.deleteProperty(cloneIt, "children");
+  Reflect.deleteProperty(cloneIt, "render");
   return (
-    <el-table-column {...defaultParam} {...it} prop={it.prop} label={it.label}>
+    <el-table-column
+      {...defaultParam}
+      {...cloneIt}
+      prop={it.prop}
+      label={it.label}
+    >
       {(scope) => {
         const currentFunc = columnsActions.get(key || it.type);
         if ((key || it.type) && currentFunc) {
