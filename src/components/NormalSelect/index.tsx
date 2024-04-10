@@ -1,7 +1,8 @@
-import { defineComponent, computed, ref, isRef } from "vue";
+import { defineComponent, computed } from "vue";
+import { disposeRef } from "@/utils/index";
 const selectProps = {
   options: Array,
-  modelValue: String,
+  modelValue: [String, Number],
   onChange: Function,
 };
 export default defineComponent({
@@ -11,7 +12,7 @@ export default defineComponent({
   setup(props, { emit }) {
     // 判断是否ref对象，是则返回.value
     const options = computed(() => {
-      return isRef(props.options) ? props.options.value : props.options;
+      return disposeRef(props.options);
     });
     const internalValue = computed({
       get() {

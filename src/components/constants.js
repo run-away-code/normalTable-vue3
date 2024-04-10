@@ -1,4 +1,4 @@
-import NormalInput from './NormalInput/index'
+import NormalInput from './NormalInput/index.vue'
 import NormalSelect from './NormalSelect/index'
 import NormalCascader from './NormalCascader/index'
 export const DATE_FORMAT = {
@@ -22,7 +22,7 @@ export const COMPONENTS_NAME = {
     'Date': 'NormalDate',
     'Cascader': NormalCascader,
     'Radio': 'NormalRadio',
-    'InputNumber':'el-input-number',
+    'InputNumber': 'el-input-number',
     'Switch': 'el-switch',
     'Checkbox': 'NormalCheckbox'
 }
