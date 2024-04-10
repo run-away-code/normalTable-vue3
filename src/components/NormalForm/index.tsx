@@ -11,19 +11,20 @@ import Form from "./form";
 import { useSubmit } from "./hooks/useSubmit";
 const gatherProps = () => ({
   items: [Array, Function],
-  submit: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
+  diaLog: Object,
 });
 export default defineComponent({
   name: "NormalForm",
   props: gatherProps(),
-  setup(props, { slots }) {
+  emits: ["submit"],
+  setup(props, { emit }) {
     const { proxy } = getCurrentInstance();
     const { handleSubmit, dialogForm, useOpen, dialogBind, formBind } =
-      useSubmit(props);
+      useSubmit(props, emit);
     proxy.open = useOpen;
     return () => (
       <>
-        <el-dialog v-model={dialogForm.value} {...dialogBind}>
+        <el-dialog v-model={dialogForm.value} {...dialogBind.value}>
           <Form {...formBind}></Form>
           <el-button type="primary" onClick={handleSubmit}>
             确认

@@ -33,3 +33,13 @@ declare interface ColumnProps {
   render?: () => void;
   [key: string]: any;
 }
+
+declare interface FormItemProps {
+  tag: string,
+  label: string,
+  prop: string,
+  rule?: any,
+  bind?: object,
+  render?: () => void;
+  [key: string]: any
+}

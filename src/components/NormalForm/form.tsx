@@ -1,8 +1,12 @@
-import { defineComponent, h } from "vue";
+import { defineComponent, PropType, isRef } from "vue";
 import { useForm } from "./hooks/useForm";
 import { COMPONENTS_NAME } from "@/components/constants";
+import { disposeRef } from "@/utils/index";
 export const formItemProps = () => ({
-  items: Array,
+  items: {
+    type: Array as PropType<FormItemProps[]>,
+    required: true,
+  },
   inline: Boolean,
   style: String,
 });
@@ -25,20 +29,18 @@ export default defineComponent({
       }
       // 无render&无tag则配置错误
       if (!it?.tag) return <>tag配置错误</>;
-      const Tag = COMPONENTS_NAME[it.tag]
+      // tag存在则渲染
+      const Tag = COMPONENTS_NAME[it.tag];
+      const options = disposeRef(it.bind.options);
       const bind = {
         ...it.bind,
+        ...(it.bind?.options && { options }),
         modelValue: fromData[it.prop],
-      }
+      };
+      // fromData[it.prop] = null;
       return (
         <>
-          <Tag {...bind}></Tag>
-          {/* {h(COMPONENTS_NAME[it?.tag], {
-            ...it.bind,
-            width: "100%",
-            modelValue: fromData[it.prop],
-            "onUpdate:modelValue": handleUpdateValue(it),
-          })} */}
+          <Tag {...bind} v-model:modelValue={fromData[it.prop]}></Tag>
         </>
       );
     };

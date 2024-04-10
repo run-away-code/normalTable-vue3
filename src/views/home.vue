@@ -1,15 +1,21 @@
 <template>
   <div>
-    <!-- <ElButton @click="openForm">打开form</ElButton> -->
+    <ElButton @click="openForm">打开form</ElButton>
+    <NormalForm
+      :diaLog="diaLog"
+      :items="FormData.items"
+      @submit="submit"
+      ref="formRef"
+    ></NormalForm>
     <!-- <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
       :pagination="pagination"
     ></NormalTable> -->
-    <el-table :data="data1">
+    <!-- <el-table :data="data1">
       <NormalColumns :columns="columns"> </NormalColumns>
-    </el-table>
+    </el-table> -->
   </div>
 </template>
 
@@ -26,6 +32,10 @@ const pagination = {
   // currentChange: () => {
   //   console.log(123123)
   // }
+};
+const diaLog = {
+  title: "标题",
+  width: "600px",
 };
 const columns = [
   {
@@ -143,8 +153,30 @@ onMounted(() => {
     ];
   }, 1000);
 });
+const Cascaderoptions = [
+  {
+    value: "zujian",
+    label: "组件",
+    children: [
+      {
+        value: "basic",
+        label: "Basic",
+        children: [
+          {
+            value: "layout",
+            label: "Layout 布局",
+          },
+          {
+            value: "color",
+            label: "Color 色彩",
+          },
+        ],
+      },
+    ],
+  },
+];
 const FormData = shallowRef({
-  list: (data) => {
+  items: (data) => {
     return [
       {
         tag: "Select",
@@ -160,7 +192,7 @@ const FormData = shallowRef({
       },
       {
         tag: "Input",
-        label: "跟进信息",
+        label: "姓名",
         prop: "content",
         rule: true,
         bind: {
@@ -174,16 +206,16 @@ const FormData = shallowRef({
         tag: "Cascader",
         label: "状态",
         prop: "status",
-        // render(row) {
-        //   return "文字展示";
-        // },
+        bind: {
+          options: Cascaderoptions,
+        },
       },
     ];
   },
-  async submit(values) {
-    console.log(values, "点击确认执行");
-  },
 });
+const submit = (values) => {
+  console.log(values, "点击确认执行");
+};
 const tableData = shallowRef({
   ...filters,
   onSearch: ({ filterValue, pagination }) => {
@@ -212,10 +244,10 @@ const openForm = () => {
   // open函数接口data进行赋值
   formRef.value.open({
     title: "这是一个提1示",
-    data: {
-      stat1us: "",
-      content: "这是一个 提示语",
-    },
+    // data: {
+    //   stat1us: "",
+    //   content: "这是一个 提示语",
+    // },
   });
 };
 </script>
@@ -224,4 +256,23 @@ const openForm = () => {
 .red {
   color: red;
 }
+/* :root {
+  --flexDirection: row;
+  --flexWrap: wrap;
+  --item-basis: 100px;
+  --gap: 10px;
+  --columns: 5;
+  --width: 332px;
+}
+.a {
+  width: var(--width);
+  display: flex;
+  flex-flow: wrap;
+  gap: var(--gap);
+}
+.a div {
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+} */
 </style>

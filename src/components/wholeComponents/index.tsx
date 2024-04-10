@@ -24,7 +24,7 @@ export const wholeComponents = new Map([
       return (
         <>
           <el-dropdown v-slots={dropdownSlots(it, scope)}>
-            <span class="el-dropdown-link">
+            <span class="el-dropdown-link" style="cursor: pointer">
               <span style="font-size: 22px; color: var(--custom-color-primary); font-weight: bold">
                 ···
               </span>

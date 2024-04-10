@@ -1,29 +1,33 @@
-import {
-  defineComponent,
-  computed,
-} from "vue";
+import { defineComponent, computed, isRef } from "vue";
 const inputProps = {
-  modelValue: '',
-  onChange: () => {}
-}
+  modelValue: "",
+  onChange: () => {},
+  options: Array,
+};
 export default defineComponent({
   name: "NormalCascader",
   props: inputProps,
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const { onChange } = props
+    // 判断是否ref对象，是则返回.value
+    const options = computed(() => {
+      return isRef(props.options) ? props.options.value : props.options;
+    });
+    const { onChange } = props;
     const internalValue = computed({
       get() {
-        return props.modelValue
+        return props.modelValue;
       },
       set(newVal) {
         emit("update:modelValue", newVal);
-        onChange?.(newVal)
-      }
-    })
+        onChange?.(newVal);
+      },
+    });
     return () => (
       <>
         <el-cascader
+          {...props}
+          options={options.value}
           v-model={internalValue.value}
         />
       </>

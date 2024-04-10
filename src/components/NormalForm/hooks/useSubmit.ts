@@ -1,18 +1,28 @@
 import {
   reactive,
-  computed
+  computed,
+  toRefs,
 } from "vue";
 import { fromData, ruleFormRef } from './useForm'
-const dialogBind = reactive({
-  title: '提示',
-})
-export const useSubmit = (props) => {
+import { deepClone } from "@/utils/index";
+type Params = {
+  title?: string;
+  data?: object
+}
+export const useSubmit = (props, emit) => {
   const dialogForm = reactive({
     value: false,
   });
-  const { items, submit } = props
+  const { items: refItems, diaLog } = toRefs(props)
+
+  const dialogBind = computed(() => {
+    return {
+      ...diaLog.value,
+    }
+  })
   // items为函数or数组
   const useList = computed(() => {
+    const items = refItems.value
     if (typeof items === 'function') {
       return items(fromData)
     }
@@ -22,7 +32,7 @@ export const useSubmit = (props) => {
   const handleSubmit = async () => {
     try {
       await ruleFormRef.value.validate()
-      await submit(fromData)
+      emit('submit', fromData)
       useClose()
     } catch (error) {
       console.error(error, 'submit出错了')
@@ -33,24 +43,17 @@ export const useSubmit = (props) => {
   const useClose = () => {
     dialogForm.value = false;
   }
-  type Params = {
-    title?: string;
-    data?: object
-  }
   // 打开弹窗
   const useOpen = (params: Params) => {
     const { title, data = {} } = params
     Object.keys(data).forEach(k => {
       fromData[k] = data[k]
     })
-    dialogBind.title = title
     dialogForm.value = true;
   };
   // 传入form中参数
   const formBind = computed(() => {
-    // TODO：这里还缺深拷贝
-    const binds = { ...props, items: useList.value }
-    binds.submit = null
+    const binds = { items: useList.value }
     return binds
   })
   return {

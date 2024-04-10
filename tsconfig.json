@@ -15,5 +15,6 @@
     "lib": ["esnext", "dom"],
     "typeRoots" : ["./node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/globals.d.ts"],
+  "exclude": ["node_modules/**/*"]
 }

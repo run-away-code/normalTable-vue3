@@ -4,7 +4,7 @@ const selectProps = {
   bind: Object,
 };
 export default defineComponent({
-  name: "NormalPicker",
+  name: "NormalDatePicker",
   props: selectProps,
   setup(props) {
     return () => (
