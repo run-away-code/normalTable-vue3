@@ -4,11 +4,10 @@
 
 <script lang="tsx" setup>
 // NormalDatePicker
-import { computed } from "vue";
+import { computed, useAttrs } from "vue";
 import { datePickerProps } from "./type";
 const modeValueKey = "update:modelValue";
 const props = defineProps<datePickerProps>();
-console.log(props, "props");
 const emit = defineEmits([modeValueKey]);
 const internalValue = computed({
   get() {
@@ -26,11 +25,11 @@ const initAttributes = computed(() => {
     startPlaceholder: "开始时间",
     endPlaceholder: "结束时间",
     rangeSeparator: "至",
-    ...props,
+    valueFormat: "YYYY-MM-DD",
+    ...useAttrs(),
   };
 });
 const Render = () => {
-  console.log(props, "dddinitAttributes");
   return (
     <>
       <el-date-picker {...initAttributes.value} v-model={internalValue.value} />

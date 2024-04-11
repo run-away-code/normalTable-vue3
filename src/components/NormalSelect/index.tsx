@@ -1,4 +1,4 @@
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, useAttrs } from "vue";
 import { disposeRef } from "@/utils/index";
 const selectProps = {
   options: Array,
@@ -25,7 +25,11 @@ export default defineComponent({
     });
     return () => (
       <>
-        <el-select {...props} vModel={internalValue.value} style="width: 100%">
+        <el-select
+          {...useAttrs()}
+          vModel={internalValue.value}
+          style="width: 100%"
+        >
           {options.value?.map((it) => {
             return <el-option {...it} />;
           })}

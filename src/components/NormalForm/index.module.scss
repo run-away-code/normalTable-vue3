@@ -1,0 +1,19 @@
+.flex {
+  display: flex;
+}
+.flexContent {
+  @extend.flex;
+  justify-content: center;
+}
+.flexCenter {
+  @extend.flexContent;
+  align-items: center;
+}
+.center{
+  @extend.flex;
+  justify-content: center;
+  align-items: center;
+}
+.gap60 {
+  gap: 0 60px;
+}

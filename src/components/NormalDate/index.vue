@@ -3,7 +3,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { computed, ref } from "vue";
+import { computed, useAttrs } from "vue";
 import { datePickerProps } from "./type";
 const modeValueKey = "update:modelValue";
 const props = defineProps<datePickerProps>();
@@ -22,7 +22,8 @@ const internalValue = computed({
 const initAttributes = computed(() => {
   return {
     placeholder: "选择日期",
-    ...props,
+    valueFormat: "YYYY-MM-DD",
+    ...useAttrs(),
   };
 });
 const Render = () => {

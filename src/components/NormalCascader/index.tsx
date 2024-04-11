@@ -1,4 +1,4 @@
-import { defineComponent, computed, isRef } from "vue";
+import { defineComponent, computed, isRef, useAttrs } from "vue";
 const inputProps = {
   modelValue: "",
   onChange: () => {},
@@ -26,7 +26,7 @@ export default defineComponent({
     return () => (
       <>
         <el-cascader
-          {...props}
+          {...useAttrs()}
           options={options.value}
           v-model={internalValue.value}
         />

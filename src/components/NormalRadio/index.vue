@@ -19,7 +19,14 @@ const internalValue = computed({
     props.onChange?.(newVal);
   },
 });
+const getOptionsVNode = () => {
+  return props.options?.map((it) => {
+    return <el-radio value={it.value}>{it.label}</el-radio>;
+  });
+};
 const Render = () => {
-  return <el-input {...useAttrs()} v-model={internalValue.value} />;
+  return (
+    <el-radio-group v-model={internalValue.value}>{getOptionsVNode()}</el-radio-group>
+  );
 };
 </script>

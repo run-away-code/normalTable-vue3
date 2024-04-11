@@ -196,7 +196,8 @@ const FormData = shallowRef({
         prop: "content",
         rule: true,
         bind: {
-          width: "100px",
+          type: "textarea",
+          rows: 2,
           // input: (val) => {
           //   console.log(val);
           // },
@@ -219,6 +220,14 @@ const FormData = shallowRef({
         tag: "DatePicker",
         label: "日期区间",
         prop: "dat123e",
+      },
+      {
+        tag: "Radio",
+        label: "日期区间",
+        prop: "reado",
+        bind: {
+          options,
+        },
       },
     ];
   },
@@ -252,12 +261,12 @@ const tableData = shallowRef({
 });
 const openForm = () => {
   // open函数接口data进行赋值
+  // formRef.value.open();
   formRef.value.open({
-    title: "这是一个提1示",
-    // data: {
-    //   stat1us: "",
-    //   content: "这是一个 提示语",
-    // },
+    data: {
+      stat1us: 1,
+      // content: "这是一个 提示语",
+    },
   });
 };
 </script>

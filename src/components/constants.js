@@ -3,6 +3,9 @@ import NormalSelect from './NormalSelect/index'
 import NormalCascader from './NormalCascader/index'
 import NormalDate from './NormalDate/index.vue'
 import NormalPicker from './NormalPicker/index.vue'
+import NormalRadio from './NormalRadio/index.vue'
+import NormalCheckbox from './NormalCheckbox/index.vue'
+
 export const DATE_FORMAT = {
     year: 'yyyy',
     month: 'yyyy-MM',
@@ -23,8 +26,8 @@ export const COMPONENTS_NAME = {
     'Upload': 'NormalUpload',
     'Date': NormalDate,
     'Cascader': NormalCascader,
-    'Radio': 'NormalRadio',
+    'Radio': NormalRadio,
     'InputNumber': 'el-input-number',
     'Switch': 'el-switch',
-    'Checkbox': 'NormalCheckbox'
+    'Checkbox': NormalCheckbox
 }
