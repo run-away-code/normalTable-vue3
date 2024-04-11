@@ -31,7 +31,8 @@ export default defineComponent({
       if (!it?.tag) return <>tag配置错误</>;
       // tag存在则渲染
       const Tag = COMPONENTS_NAME[it.tag];
-      const options = disposeRef(it.bind.options);
+      // 为选择器则进行处理数据
+      const options = it.bind?.options && disposeRef(it.bind.options);
       const bind = {
         ...it.bind,
         ...(it.bind?.options && { options }),

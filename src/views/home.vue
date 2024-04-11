@@ -210,6 +210,16 @@ const FormData = shallowRef({
           options: Cascaderoptions,
         },
       },
+      {
+        tag: "Date",
+        label: "日期",
+        prop: "date",
+      },
+      {
+        tag: "DatePicker",
+        label: "日期区间",
+        prop: "dat123e",
+      },
     ];
   },
 });
