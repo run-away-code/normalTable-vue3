@@ -1,10 +1,16 @@
-import Home from './views/home.vue'
+import Home from './views/table.vue'
+import Form from './views/form.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: Form
   },
   {
     path: '/page2',
