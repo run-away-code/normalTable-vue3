@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElTable: typeof import('element-plus/es')['ElTable']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NormalCheckbox: typeof import('./src/components/NormalCheckbox/index.vue')['default']
     NormalDate: typeof import('./src/components/NormalDate/index.vue')['default']

@@ -7,15 +7,15 @@
       @submit="submit"
       ref="formRef"
     ></NormalForm>
-    <!-- <NormalTable
+    <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
       :pagination="pagination"
-    ></NormalTable> -->
-    <!-- <el-table :data="data1">
-      <NormalColumns :columns="columns"> </NormalColumns>
-    </el-table> -->
+    ></NormalTable>
+    <el-table :data="data1">
+      <!-- <NormalColumns :columns="columns"> </NormalColumns> -->
+    </el-table>
   </div>
 </template>
 
@@ -26,6 +26,7 @@ import NormalForm from "@/components/NormalForm";
 import { NormalColumns } from "@/components/index";
 
 import { filters } from "./constant";
+const valueInput = ref(null);
 const pagination = {
   pageSizes: [10, 20, 30, 40, 50, 100],
   disabled: true,
@@ -68,11 +69,25 @@ const columns = [
         prop: "price",
         label: "金额",
         type: "money",
+        editable: true,
       },
       {
         prop: "hhh",
         label: "金额1",
         type: "money",
+        render(scope) {
+          console.log(scope, "scope");
+          const aaa = (val) => {
+            const a = {
+              ...data1.value[scope.$index],
+              hhh: val,
+            };
+            data1.value[scope.$index] = a;
+          };
+          return (
+            <el-input model-value={scope.row.hhh} onInput={aaa} style="width: 100px" />
+          );
+        },
       },
     ],
   },
@@ -133,16 +148,16 @@ const columns = [
     },
   },
 ];
-const data1 = [
+const data1 = ref([
   {
     date: "2016-05-03",
     name: "100000",
     address: "No. 189, Grove St, Los Angeles",
     price: -9991000,
     num: 99999,
-    hhh: undefined,
+    hhh: 123,
   },
-];
+]);
 const formRef = ref(null);
 const options = ref([]);
 onMounted(() => {
@@ -223,11 +238,16 @@ const FormData = shallowRef({
       },
       {
         tag: "Radio",
-        label: "日期区间",
+        label: "日期区1间",
         prop: "reado",
         bind: {
           options,
         },
+      },
+      {
+        tag: "text",
+        label: "日期区1间",
+        prop: "aaa",
       },
     ];
   },
@@ -265,6 +285,7 @@ const openForm = () => {
   formRef.value.open({
     data: {
       stat1us: 1,
+      aaa: "111aaa",
       // content: "这是一个 提示语",
     },
   });

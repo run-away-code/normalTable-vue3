@@ -38,6 +38,8 @@ export default defineComponent({
         ...(it.bind?.options && { options }),
         modelValue: fromData[it.prop],
       };
+      // tag不存在则返回文本
+      if (!Tag) return <div>{fromData[it.prop]}</div>;
       // fromData[it.prop] = null;
       return (
         <>
