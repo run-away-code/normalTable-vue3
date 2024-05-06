@@ -57,6 +57,12 @@ export const useSubmit = (props, emit) => {
     Object.keys(data).forEach(k => {
       fromData[k] = data[k]
     })
+    // data为空则清空数据
+    if (!Object.keys(data).length) {
+      Object.keys(fromData).forEach(k => {
+        fromData[k] = null
+      })
+    }
     dialogForm.value = true;
   };
   // 传入form中参数

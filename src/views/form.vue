@@ -1,12 +1,7 @@
 <template>
   <div>
-    <ElButton @click="openForm">打开form</ElButton>
-    <NormalForm
-      :diaLog="diaLog"
-      :items="FormData.items"
-      @submit="submit"
-      ref="formRef"
-    ></NormalForm>
+    <ElButton @click="openForm">打开1form</ElButton>
+    <NormalForm :items="FormData.items" @submit="submit" ref="formRef"></NormalForm>
   </div>
 </template>
 
@@ -117,12 +112,9 @@ const submit = (values) => {
 const openForm = () => {
   // open函数接口data进行赋值
   // formRef.value.open();
+  console.log(11111);
   formRef.value.open({
-    data: {
-      stat1us: 1,
-      aaa: "111aaa",
-      // content: "这是一个 提示语",
-    },
+    data: {},
   });
 };
 </script>
