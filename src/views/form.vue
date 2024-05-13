@@ -67,10 +67,12 @@ const FormData = ref({
         bind: {
           options,
           onChange: () => {
-            formRef.value.updateValue({
-              key: "conten123t",
-              value: "123123123",
-            });
+            formRef.value.updateValues([
+              {
+                key: "conten123t",
+                value: "123123123",
+              },
+            ]);
           },
         },
       },

@@ -40,6 +40,14 @@ export const useForm = (props) => {
     ruleFormRef
   }
 }
-export const updateValue = ({ key, value }) => {
+export const updateValues = (keyValues) => {
+  if (!keyValues) return
+  // 如果是数组，则使用数组的值
+  if (Array.isArray(keyValues)) {
+    keyValues.forEach(it => updateValues(it))
+    return
+  }
+  // 否则使用对象的值
+  const { key, value } = keyValues
   fromData[key] = value
 }
