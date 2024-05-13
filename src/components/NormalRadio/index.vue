@@ -21,12 +21,18 @@ const internalValue = computed({
 });
 const getOptionsVNode = () => {
   return props.options?.map((it) => {
-    return <el-radio value={it.value}>{it.label}</el-radio>;
+    return (
+      <el-radio value={it.value} disabled={it.disabled}>
+        {it.label}
+      </el-radio>
+    );
   });
 };
 const Render = () => {
   return (
-    <el-radio-group v-model={internalValue.value}>{getOptionsVNode()}</el-radio-group>
+    <el-radio-group {...useAttrs()} v-model={internalValue.value}>
+      {getOptionsVNode()}
+    </el-radio-group>
   );
 };
 </script>
