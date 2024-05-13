@@ -9,6 +9,7 @@ import {
 } from "vue";
 import Form from "./form";
 import { useSubmit } from "./hooks/useSubmit";
+import { updateValue } from "./hooks/useForm";
 import styles from "./index.module.scss";
 const gatherProps = () => ({
   items: [Array, Function],
@@ -31,6 +32,7 @@ export default defineComponent({
     } = useSubmit(props, emit);
     proxy.open = useOpen;
     proxy.close = handleCancel;
+    proxy.updateValue = updateValue;
 
     const buttonClass = [styles.flexContent, styles.gap60];
     // form表单

@@ -57,61 +57,69 @@ const l = [
   },
 ];
 const FormData = ref({
-  items: [
-    {
-      tag: "Select",
-      label: "状态",
-      prop: "stat1us",
-      rule: "状态不能为空",
-      bind: {
-        options,
+  items: (daa) => {
+    return [
+      {
+        tag: "Select",
+        label: "状态",
+        prop: "stat1us",
+        rule: "状态不能为空",
+        bind: {
+          options,
+          onChange: () => {
+            formRef.value.updateValue({
+              key: "conten123t",
+              value: "123123123",
+            });
+          },
+        },
       },
-    },
-    {
-      tag: "Input",
-      label: "姓名",
-      prop: "content",
-      rule: true,
-      bind: {
-        type: "textarea",
-        rows: 2,
-        // input: (val) => {
-        //   console.log(val);
-        // },
+      {
+        tag: "Input",
+        label: "姓名",
+        prop: "conten123t",
+        rule: true,
+        bind: {
+          type: "textarea",
+          rows: 2,
+          // input: (val) => {
+          //   console.log(val);
+          // },
+        },
       },
-    },
-    {
-      tag: "Cascader",
-      label: "状态",
-      prop: "status",
-      bind: {
-        options: Cascaderoptions,
+      {
+        tag: "Cascader",
+        label: "状态",
+        prop: "status",
+        bind: {
+          options: Cascaderoptions,
+        },
       },
-    },
-    {
-      tag: "Date",
-      label: "日期",
-      prop: "date",
-    },
-    {
-      tag: "DatePicker",
-      label: "日期区间",
-      prop: "dat123e",
-    },
-    {
-      tag: "Radio",
-      label: "日期区1间",
-      prop: "reado",
-      bind: {
-        options,
+      {
+        tag: "Date",
+        label: "日期",
+        prop: "date",
       },
-    },
-    {
-      tag: "text",
-      label: "日期区1间",
-      prop: "aaa",
-    },
-  ],
+      {
+        tag: "DatePicker",
+        label: "日期区间",
+        prop: "dat123e",
+      },
+      {
+        tag: "Radio",
+        label: "日期区1间",
+        prop: "reado",
+        bind: {
+          options,
+        },
+      },
+      {
+        tag: "text",
+        label: "日期区1间",
+        prop: "aaa",
+      },
+    ];
+  },
 });
 const submit = (values) => {
   console.log(values, "点击确认执行");

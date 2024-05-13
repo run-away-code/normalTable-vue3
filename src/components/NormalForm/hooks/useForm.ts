@@ -40,3 +40,6 @@ export const useForm = (props) => {
     ruleFormRef
   }
 }
+export const updateValue = ({ key, value }) => {
+  fromData[key] = value
+}
