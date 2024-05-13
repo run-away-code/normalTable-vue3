@@ -1,6 +1,8 @@
 <template>
   <div>
-    <ElButton @click="openForm">打开1form</ElButton>
+    <ElButton @click="openForm">打开form</ElButton>
+    <ElButton @click="openForm1">打开form1</ElButton>
+
     <NormalForm :items="FormData.items" @submit="submit" ref="formRef"></NormalForm>
   </div>
 </template>
@@ -44,8 +46,9 @@ const Cascaderoptions = [
     ],
   },
 ];
-const FormData = shallowRef({
+const FormData = ref({
   items: (data) => {
+    console.log(data, "data11111");
     return [
       {
         tag: "Select",
@@ -55,9 +58,10 @@ const FormData = shallowRef({
         bind: {
           options,
         },
-        // render(row) {
-        //   return "文字展示";
-        // },
+        render(row) {
+          console.log(row, "rrr");
+          return "文字展示";
+        },
       },
       {
         tag: "Input",
@@ -112,9 +116,15 @@ const submit = (values) => {
 const openForm = () => {
   // open函数接口data进行赋值
   // formRef.value.open();
-  console.log(11111);
   formRef.value.open({
     data: {},
+  });
+};
+const openForm1 = () => {
+  formRef.value.open({
+    data: {
+      id: 1,
+    },
   });
 };
 </script>

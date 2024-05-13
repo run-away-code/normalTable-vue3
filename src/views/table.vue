@@ -1,20 +1,19 @@
 <template>
   <div>
-    <ElButton @click="openForm">打开form</ElButton>
     <NormalForm
       :diaLog="diaLog"
       :items="FormData.items"
       @submit="submit"
       ref="formRef"
     ></NormalForm>
-    <NormalTable
+    <!-- <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
       :pagination="pagination"
-    ></NormalTable>
+    ></NormalTable> -->
     <el-table :data="data1">
-      <!-- <NormalColumns :columns="columns"> </NormalColumns> -->
+      <NormalColumns :columns="columns"> </NormalColumns>
     </el-table>
   </div>
 </template>
@@ -113,6 +112,7 @@ const columns = [
           // hasAuth: false,
           label: "确认",
           text: true,
+          hide: true,
           type: "primary",
           call: (row) => {}, // row参数为当前行数据
         },
