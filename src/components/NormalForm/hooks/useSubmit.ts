@@ -1,7 +1,9 @@
 import {
+  ref,
   reactive,
   computed,
   toRefs,
+  watch,
 } from "vue";
 import { fromData, ruleFormRef } from './useForm'
 import { deepClone } from "@/utils/index";
@@ -13,6 +15,8 @@ export const useSubmit = (props, emit) => {
   const dialogForm = reactive({
     value: false,
   });
+  // 传入form中参数
+  const formBind = ref({ items: [] })
   const { items: refItems, diaLog } = toRefs(props)
   // 是否显示dialog-默认false
   const hideDialog = computed(() => {
@@ -25,11 +29,21 @@ export const useSubmit = (props, emit) => {
   })
   // items为函数or数组
   const useList = computed(() => {
-    const items = refItems.value
-    if (typeof items === 'function') {
-      return items(fromData)
+    return updateParams => {
+      const items = refItems.value
+      if (typeof items === 'function') {
+        return items(updateParams)
+      }
+      return items
     }
-    return items
+  })
+  watch(() => fromData,
+    (newValue) => {
+      const updateParams = deepClone(newValue)
+      formBind.value.items = useList.value(updateParams)
+    }, {
+    deep: true,
+    immediate: true
   })
   // 确认
   const handleSubmit = async () => {
@@ -65,11 +79,6 @@ export const useSubmit = (props, emit) => {
     }
     dialogForm.value = true;
   };
-  // 传入form中参数
-  const formBind = computed(() => {
-    const binds = { items: useList.value }
-    return binds
-  })
   return {
     dialogForm,
     hideDialog,

@@ -16,13 +16,15 @@ const diaLog = {
 };
 const formRef = ref(null);
 const options = ref([]);
+const ppp = ref(false);
 onMounted(() => {
   setTimeout(() => {
     options.value = [
       { label: "选择1", value: 1 },
       { label: "选择2", value: 2 },
     ];
-  }, 1000);
+    ppp.value = true;
+  }, 5000);
 });
 const Cascaderoptions = [
   {
@@ -46,69 +48,70 @@ const Cascaderoptions = [
     ],
   },
 ];
-const FormData = ref({
-  items: (data) => {
-    console.log(data, "data11111");
-    return [
-      {
-        tag: "Select",
-        label: "状态",
-        prop: "stat1us",
-        rule: "状态不能为空",
-        bind: {
-          options,
-        },
-        render(row) {
-          console.log(row, "rrr");
-          return "文字展示";
-        },
-      },
-      {
-        tag: "Input",
-        label: "姓名",
-        prop: "content",
-        rule: true,
-        bind: {
-          type: "textarea",
-          rows: 2,
-          // input: (val) => {
-          //   console.log(val);
-          // },
-        },
-      },
-      {
-        tag: "Cascader",
-        label: "状态",
-        prop: "status",
-        bind: {
-          options: Cascaderoptions,
-        },
-      },
-      {
-        tag: "Date",
-        label: "日期",
-        prop: "date",
-      },
-      {
-        tag: "DatePicker",
-        label: "日期区间",
-        prop: "dat123e",
-      },
-      {
-        tag: "Radio",
-        label: "日期区1间",
-        prop: "reado",
-        bind: {
-          options,
-        },
-      },
-      {
-        tag: "text",
-        label: "日期区1间",
-        prop: "aaa",
-      },
-    ];
+const l = [
+  {
+    tag: "Input",
+    label: "姓1名",
+    prop: "content",
+    rule: true,
   },
+];
+const FormData = ref({
+  items: [
+    {
+      tag: "Select",
+      label: "状态",
+      prop: "stat1us",
+      rule: "状态不能为空",
+      bind: {
+        options,
+      },
+    },
+    {
+      tag: "Input",
+      label: "姓名",
+      prop: "content",
+      rule: true,
+      bind: {
+        type: "textarea",
+        rows: 2,
+        // input: (val) => {
+        //   console.log(val);
+        // },
+      },
+    },
+    {
+      tag: "Cascader",
+      label: "状态",
+      prop: "status",
+      bind: {
+        options: Cascaderoptions,
+      },
+    },
+    {
+      tag: "Date",
+      label: "日期",
+      prop: "date",
+    },
+    {
+      tag: "DatePicker",
+      label: "日期区间",
+      prop: "dat123e",
+    },
+    {
+      tag: "Radio",
+      label: "日期区1间",
+      prop: "reado",
+      bind: {
+        options,
+      },
+    },
+    {
+      tag: "text",
+      label: "日期区1间",
+      prop: "aaa",
+    },
+  ],
 });
 const submit = (values) => {
   console.log(values, "点击确认执行");

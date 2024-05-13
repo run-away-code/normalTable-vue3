@@ -37,9 +37,14 @@ export default defineComponent({
     const getFormVNode = () => {
       return <Form {...formBind}></Form>;
     };
+    const aa = true;
     const getDialogFormVNode = () => {
       return (
-        <el-dialog v-model={dialogForm.value} {...dialogBind.value}>
+        <el-dialog
+          destroy-on-close={aa}
+          v-model={dialogForm.value}
+          {...dialogBind.value}
+        >
           {getFormVNode()}
           <div class={buttonClass}>
             <el-button onClick={handleCancel}>取消</el-button>
