@@ -21,12 +21,16 @@ const internalValue = computed({
 });
 const getOptionsVNode = () => {
   return props.options?.map((it) => {
-    return <el-checkbox value={it.value}>{it.label}</el-checkbox>;
+    return (
+      <el-checkbox value={it.value} disabled={it.disabled}>
+        {it.label}
+      </el-checkbox>
+    );
   });
 };
 const Render = () => {
   return (
-    <el-checkbox-group v-model={internalValue.value}>
+    <el-checkbox-group {...useAttrs()} v-model={internalValue.value}>
       {getOptionsVNode()}
     </el-checkbox-group>
   );
