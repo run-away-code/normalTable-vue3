@@ -27,7 +27,7 @@ export const useForm = (props) => {
       obj[it.prop] = isArray ? it.rule : [{
         trigger: ['blur', 'change'],
         required: true,
-        message: typeof it.rule === 'string' ? it.rule : '不可为空',
+        message: typeof it.rule === 'string' ? it.rule : `${it.label}不可为空`,
       }]
       return obj
     }, {})
