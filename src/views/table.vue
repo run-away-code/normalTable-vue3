@@ -37,117 +37,123 @@ const diaLog = {
   title: "标题",
   width: "600px",
 };
-const columns = [
-  {
-    type: "index",
-    label: "序号",
-  },
-  {
-    prop: "date",
-    label: "date",
-    width: "140px",
-    fixed: "right",
-    children: [
-      {
-        prop: "num",
-        label: "数量",
-        children: [
-          {
-            prop: "num",
-            label: "数量",
-            type: "money",
-          },
-          {
-            prop: "num",
-            label: "数11量",
-            type: "money",
-          },
-        ],
-      },
-      {
-        prop: "price",
-        label: "金额",
-        type: "money",
-        editable: true,
-      },
-      {
-        prop: "hhh",
-        label: "金额1",
-        type: "money",
-        render(scope) {
-          console.log(scope, "scope");
-          const aaa = (val) => {
-            const a = {
-              ...data1.value[scope.$index],
-              hhh: val,
-            };
-            data1.value[scope.$index] = a;
-          };
-          return (
-            <el-input model-value={scope.row.hhh} onInput={aaa} style="width: 100px" />
-          );
-        },
-      },
-    ],
-  },
-  {
-    prop: "name",
-    label: "name",
-    render: (it) => {
-      return <div class="red">456456456</div>;
+const aaaName = ref("这是固定的");
+setTimeout(() => {
+  aaaName.value = "这是动态的";
+}, 3000);
+const columns = () => {
+  return [
+    {
+      type: "index",
+      label: "序号",
     },
-  },
-  {
-    prop: "address",
-    label: "address",
-  },
-  {
-    label: "操作",
-    width: "180px",
-    btns: (row) => {
-      // 可为数组可为函数
-      const isShowAdd = row.id !== 1;
-      return [
+    {
+      prop: "date",
+      label: "date",
+      width: "140px",
+      fixed: "right",
+      children: [
         {
-          // hasAuth: false,
-          label: "确认",
-          text: true,
-          hide: true,
-          type: "primary",
-          call: (row) => {}, // row参数为当前行数据
-        },
-        {
-          label: "添加",
-          text: true,
-          type: "primary",
-          confirm: "确定移除吗？", // 二次确认弹窗
-          call: (row) => {
-            console.log(123123);
-            // row = JSON.parse(JSON.stringify(row));
-          },
-        },
-        {
-          label: "确认",
-          type: "text",
+          prop: "num",
+          label: "数量",
           children: [
             {
-              label: "测试123",
-              call: () => {
-                console.log("测试123");
-              },
+              prop: "num",
+              label: "数量",
+              type: "money",
             },
             {
-              label: "测试456",
-              call: () => {
-                console.log("测试456");
-              },
+              prop: "num",
+              label: "数11量",
+              type: "money",
             },
           ],
         },
-      ];
+        {
+          prop: "price",
+          label: "金额",
+          type: "money",
+          editable: true,
+        },
+        {
+          prop: "hhh",
+          label: "金额1",
+          type: "money",
+          render(scope) {
+            console.log(scope, "scope");
+            const aaa = (val) => {
+              const a = {
+                ...data1.value[scope.$index],
+                hhh: val,
+              };
+              data1.value[scope.$index] = a;
+            };
+            return (
+              <el-input model-value={scope.row.hhh} onInput={aaa} style="width: 100px" />
+            );
+          },
+        },
+      ],
     },
-  },
-];
+    {
+      prop: "name",
+      label: aaaName.value,
+      render: (it) => {
+        return <div class="red">456456456</div>;
+      },
+    },
+    {
+      prop: "address",
+      label: "address",
+    },
+    {
+      label: "操作",
+      width: "180px",
+      btns: (row) => {
+        // 可为数组可为函数
+        const isShowAdd = row.id !== 1;
+        return [
+          {
+            // hasAuth: false,
+            label: "确认",
+            text: true,
+            hide: true,
+            type: "primary",
+            call: (row) => {}, // row参数为当前行数据
+          },
+          {
+            label: "添加",
+            text: true,
+            type: "primary",
+            confirm: "确定移除吗？", // 二次确认弹窗
+            call: (row) => {
+              console.log(123123);
+              // row = JSON.parse(JSON.stringify(row));
+            },
+          },
+          {
+            label: "确认",
+            type: "text",
+            children: [
+              {
+                label: "测试123",
+                call: () => {
+                  console.log("测试123");
+                },
+              },
+              {
+                label: "测试456",
+                call: () => {
+                  console.log("测试456");
+                },
+              },
+            ],
+          },
+        ];
+      },
+    },
+  ];
+};
 const data1 = ref([
   {
     date: "2016-05-03",

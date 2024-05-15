@@ -9,7 +9,7 @@ const components = [
 //注册
 const install = (app) => {
   components.forEach((component) => {
-      app.component(component.name, component)
+    app.component(component.name, component)
   })
 }
 export {
