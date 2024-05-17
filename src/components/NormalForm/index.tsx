@@ -29,6 +29,7 @@ export default defineComponent({
       dialogBind,
       formBind,
       hideDialog,
+      beforeCloseDialog,
     } = useSubmit(props, emit);
     proxy.open = useOpen;
     proxy.close = handleCancel;
@@ -41,7 +42,11 @@ export default defineComponent({
     };
     const getDialogFormVNode = () => {
       return (
-        <el-dialog v-model={dialogForm.value} {...dialogBind.value}>
+        <el-dialog
+          v-model={dialogForm.value}
+          before-close={beforeCloseDialog}
+          {...dialogBind.value}
+        >
           {getFormVNode()}
           <div class={buttonClass}>
             <el-button onClick={handleCancel}>取消</el-button>

@@ -50,16 +50,21 @@ export const useSubmit = (props, emit) => {
     try {
       await ruleFormRef.value.validate()
       // 暴露出去的数据需深拷贝
-      emit('submit', deepClone(fromData))
-      useClose()
+      const res = emit('submit', deepClone(fromData), useClose)
     } catch (error) {
       console.error(error, 'submit出错了')
     }
 
   }
   const handleCancel = () => {
+    ruleFormRef.value.resetFields()
     emit('cancel')
     useClose()
+  }
+  // 关闭dialog前回调
+  const beforeCloseDialog = (done) => {
+    ruleFormRef.value.resetFields()
+    done()
   }
   // 关闭弹窗
   const useClose = () => {
@@ -87,6 +92,7 @@ export const useSubmit = (props, emit) => {
     useOpen,
     useClose,
     dialogBind,
+    beforeCloseDialog,
     formBind: formBind.value
   }
 }

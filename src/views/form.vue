@@ -123,8 +123,9 @@ const FormData = ref({
     ];
   },
 });
-const submit = (values) => {
+const submit = (values, close) => {
   console.log(values, "点击确认执行");
+  close();
 };
 const openForm = () => {
   // open函数接口data进行赋值
