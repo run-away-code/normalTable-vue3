@@ -116,7 +116,7 @@ const FormData = ref({
         },
       },
       {
-        tag: "text",
+        tag: "InputNumber",
         label: "日期区1间",
         prop: "aaa",
       },

@@ -5,6 +5,7 @@ import NormalDate from './NormalDate/index.vue'
 import NormalPicker from './NormalPicker/index.vue'
 import NormalRadio from './NormalRadio/index.vue'
 import NormalCheckbox from './NormalCheckbox/index.vue'
+import NormalInputNumber from './NormalInput/inputNumber.vue'
 
 export const DATE_FORMAT = {
     year: 'yyyy',
@@ -27,7 +28,7 @@ export const COMPONENTS_NAME = {
     'Date': NormalDate,
     'Cascader': NormalCascader,
     'Radio': NormalRadio,
-    'InputNumber': 'el-input-number',
+    'InputNumber': NormalInputNumber,
     'Switch': 'el-switch',
     'Checkbox': NormalCheckbox
 }
