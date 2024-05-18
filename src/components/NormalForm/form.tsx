@@ -1,6 +1,9 @@
 import { defineComponent, PropType, isRef } from "vue";
 import { useForm } from "./hooks/useForm";
-import { COMPONENTS_NAME } from "@/components/constants";
+import {
+  COMPONENTS_NAME,
+  COMPONENTS_PLACEHOLDER,
+} from "@/components/constants";
 import { disposeRef } from "@/utils/index";
 export const formItemProps = () => ({
   items: {
@@ -33,10 +36,12 @@ export default defineComponent({
       const Tag = COMPONENTS_NAME[it.tag];
       // 为选择器则进行处理数据
       const options = it.bind?.options && disposeRef(it.bind.options);
+      const placeholder = it.placeholder || COMPONENTS_PLACEHOLDER[it.tag];
       const bind = {
         ...it.bind,
         ...(it.bind?.options && { options }),
         modelValue: fromData[it.prop],
+        ...(!!placeholder && { placeholder: placeholder + it.label }),
       };
       // tag不存在则返回文本
       if (!Tag) return <div>{fromData[it.prop]}</div>;

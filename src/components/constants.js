@@ -31,3 +31,8 @@ export const COMPONENTS_NAME = {
     'Switch': 'el-switch',
     'Checkbox': NormalCheckbox
 }
+
+export const COMPONENTS_PLACEHOLDER = {
+    'Input': '请输入',
+    'Select': '请选择',
+}
