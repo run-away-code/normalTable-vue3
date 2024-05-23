@@ -36,7 +36,7 @@ export const useForm = (props) => {
     fromData,
     handleUpdateValue,
     formItemAttrs,
-    useRules: useRules.value,
+    useRules,
     ruleFormRef
   }
 }

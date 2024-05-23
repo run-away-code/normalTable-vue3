@@ -54,7 +54,7 @@ export default defineComponent({
     };
     return () => (
       <>
-        <el-form ref={ruleFormRef} model={fromData} rules={useRules} {...props}>
+        <el-form ref={ruleFormRef} model={fromData} rules={useRules.value} {...props}>
           {props.items.map((it) => {
             return (
               <el-form-item label-width="120px" {...formItemAttrs.value(it)}>
