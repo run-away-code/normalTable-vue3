@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<inputProps>(), {
 const emit = defineEmits([modeValueKey]);
 const internalValue = computed({
   get() {
-    return props.modelValue || "";
+    return props.modelValue || 0;
   },
   set(newVal) {
     emit(modeValueKey, newVal);
