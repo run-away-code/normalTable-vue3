@@ -34,6 +34,7 @@ export default defineComponent({
     proxy.open = useOpen;
     proxy.close = handleCancel;
     proxy.updateValues = updateValues;
+    proxy.ref = formBind.ref;
 
     const buttonClass = [styles.flexContent, styles.gap60];
     // form表单
