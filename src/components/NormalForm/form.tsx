@@ -1,4 +1,4 @@
-import { defineComponent, PropType, isRef } from "vue";
+import { defineComponent, PropType, getCurrentInstance } from "vue";
 import { useForm } from "./hooks/useForm";
 import {
   COMPONENTS_NAME,
@@ -18,6 +18,7 @@ export default defineComponent({
   props: formItemProps(),
   // slots: [""],
   setup(props, { slots }) {
+    const { proxy } = getCurrentInstance();
     const {
       fromData,
       handleUpdateValue,
@@ -25,6 +26,7 @@ export default defineComponent({
       useRules,
       ruleFormRef,
     } = useForm(props);
+    proxy.ref = ruleFormRef;
     const componentRender = (it) => {
       // render优先级最高，有render则直接执行
       if (it?.render) {
@@ -54,7 +56,12 @@ export default defineComponent({
     };
     return () => (
       <>
-        <el-form ref={ruleFormRef} model={fromData} rules={useRules.value} {...props}>
+        <el-form
+          ref={ruleFormRef}
+          model={fromData}
+          rules={useRules.value}
+          {...props}
+        >
           {props.items.map((it) => {
             return (
               <el-form-item label-width="120px" {...formItemAttrs.value(it)}>

@@ -130,6 +130,7 @@ const submit = (values, close) => {
 const openForm = () => {
   // open函数接口data进行赋值
   // formRef.value.open();
+  console.log(formRef.value, "ffff");
   formRef.value.open({
     data: {},
   });

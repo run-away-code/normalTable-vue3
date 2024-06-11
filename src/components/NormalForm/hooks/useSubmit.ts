@@ -16,7 +16,7 @@ export const useSubmit = (props, emit) => {
     value: false,
   });
   // 传入form中参数
-  const formBind = ref({ items: [], ref: null })
+  const formBind = ref({ items: [] })
   const { items: refItems, diaLog } = toRefs(props)
   // 是否显示dialog-默认false
   const hideDialog = computed(() => {
@@ -93,6 +93,6 @@ export const useSubmit = (props, emit) => {
     useClose,
     dialogBind,
     beforeCloseDialog,
-    formBind: formBind.value
+    formBind: formBind
   }
 }
