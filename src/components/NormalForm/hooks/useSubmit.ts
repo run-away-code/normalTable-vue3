@@ -57,13 +57,13 @@ export const useSubmit = (props, emit) => {
 
   }
   const handleCancel = () => {
-    ruleFormRef.value.resetFields()
+    ruleFormRef.value.clearValidate()
     emit('cancel')
     useClose()
   }
   // 关闭dialog前回调
   const beforeCloseDialog = (done) => {
-    ruleFormRef.value.resetFields()
+    ruleFormRef.value.clearValidate()
     done()
   }
   // 关闭弹窗
