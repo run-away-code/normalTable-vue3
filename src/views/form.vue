@@ -66,14 +66,14 @@ const FormData = ref({
         rule: "状态不能为空",
         bind: {
           options,
-          onChange: () => {
-            formRef.value.updateValues([
-              {
-                key: "conten123t",
-                value: "123123123",
-              },
-            ]);
-          },
+          // onChange: () => {
+          //   formRef.value.updateValues([
+          //     {
+          //       key: "conten123t",
+          //       value: "123123123",
+          //     },
+          //   ]);
+          // },
         },
       },
       {
@@ -93,6 +93,7 @@ const FormData = ref({
         tag: "Cascader",
         label: "状态",
         prop: "status",
+        rule: true,
         bind: {
           options: Cascaderoptions,
         },

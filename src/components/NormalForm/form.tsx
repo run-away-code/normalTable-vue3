@@ -60,6 +60,7 @@ export default defineComponent({
           ref={ruleFormRef}
           model={fromData}
           rules={useRules.value}
+          validate-on-rule-change={false}
           {...props}
         >
           {props.items.map((it) => {
