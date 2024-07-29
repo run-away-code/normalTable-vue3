@@ -40,6 +40,16 @@ export default defineComponent({
     const getFormVNode = () => {
       return <Form {...formBind.value}></Form>;
     };
+    const getButtonVNode = () => {
+      return (
+        <div class={buttonClass}>
+          <el-button onClick={handleCancel}>取消</el-button>
+          <el-button type="primary" onClick={handleSubmit}>
+            确认
+          </el-button>
+        </div>
+      );
+    };
     const getDialogFormVNode = () => {
       return (
         <el-dialog
@@ -48,12 +58,7 @@ export default defineComponent({
           {...dialogBind.value}
         >
           {getFormVNode()}
-          <div class={buttonClass}>
-            <el-button onClick={handleCancel}>取消</el-button>
-            <el-button type="primary" onClick={handleSubmit}>
-              确认
-            </el-button>
-          </div>
+          {getButtonVNode()}
         </el-dialog>
       );
     };
