@@ -17,7 +17,7 @@ const gatherProps = {
   type: Object,
   filter: [Array, Function],
   columns: {
-    type: Array as PropType<ColumnProps[]>,
+    type: [Array, Function],
     required: true,
   },
   onSearch: Function as PropType<(...args: any[]) => any | PromiseLike<any>>,
@@ -65,6 +65,7 @@ export default defineComponent({
       return <Tables columns={columns} tableData={tableData.value}></Tables>;
     };
     const paginationVNode = () => {
+      console.log(props, "dddd");
       // pagination为false
       if ("pagination" in props && !props.pagination) {
         return null;
@@ -80,7 +81,7 @@ export default defineComponent({
           {/* table */}
           {tableVNode(columns.value)}
           {/* 分页 */}
-          {paginationVNode()}
+          {/* {paginationVNode()} */}
         </>
       );
     };

@@ -2,7 +2,7 @@ import { defineComponent, PropType, toRefs, reactive } from "vue";
 import Columns from "./columns";
 const TableProps = {
   columns: {
-    type: Array as PropType<ColumnProps[]>,
+    type: [Array, Function] as PropType<ColumnProps[] | (() => ColumnProps[])>,
     required: true,
   },
   tableData: Array,

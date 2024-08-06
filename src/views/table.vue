@@ -6,15 +6,15 @@
       @submit="submit"
       ref="formRef"
     ></NormalForm>
-    <!-- <NormalTable
+    <NormalTable
       :filter="tableData.filter"
       :columns="columns"
       :onSearch="tableData.onSearch"
       :pagination="pagination"
-    ></NormalTable> -->
-    <el-table :data="data1">
+    ></NormalTable>
+    <!-- <el-table :data="data1">
       <NormalColumns :columns="columns"> </NormalColumns>
-    </el-table>
+    </el-table> -->
   </div>
 </template>
 
@@ -26,13 +26,13 @@ import { NormalColumns } from "@/components/index";
 
 import { filters } from "./constant";
 const valueInput = ref(null);
-const pagination = {
+const pagination = ref({
   pageSizes: [10, 20, 30, 40, 50, 100],
   disabled: true,
   // currentChange: () => {
   //   console.log(123123)
   // }
-};
+});
 const diaLog = {
   title: "标题",
   width: "600px",

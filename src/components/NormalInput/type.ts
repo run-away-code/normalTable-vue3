@@ -1,5 +1,5 @@
 export interface inputProps {
-  modelValue: string,
+  modelValue: string | number,
   onChange?: (value: string) => {},
   // type?: string,
   [key: string]: any,
